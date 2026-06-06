@@ -518,7 +518,7 @@ def save_output(brief, html):
 # ── STEP 5: SEND EMAIL VIA RESEND ─────────────────────────────────────────────
 RESEND_API_KEY   = os.environ.get("RESEND_API_KEY", "YOUR_RESEND_KEY_HERE")
 DELIVER_TO_EMAIL = ["stuartgarratt@hotmail.com"]
-SEND_FROM_EMAIL  = "onboarding@resend.dev"
+SEND_FROM_EMAIL  = "brief@pacific-vector.com"
 
 def send_email(brief, html):
     """Send the brief as an HTML email via Resend."""

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacific Vector — Japan Geopolitical Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   PACIFIC VECTOR — DESIGN TOKENS
+   Tweak colours, fonts, and spacing here.
+═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ── CHANGE COLOURS HERE ── */
+  --white:     #ffffff;
+  --navy:      #1a3a5c;
+  --navy-lt:   #e8f0f8;
+  --navy-mid:  #2a5a8c;
+  --ink:       #0d0d0d;
+  --mid:       #888888;
+  --rule:      #e5e5e5;
+  --bg:        #f8f8f6;
+
+  /* ── CHANGE FONTS HERE ── */
+  --font:      'IBM Plex Mono', monospace;
+
+  /* ── CHANGE SPACING HERE ── */
+  --max-width: 740px;
+  --pad:       2rem;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════════ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+/* ═══════════════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════════════ */
+header {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 2.5rem;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.logo-accent { color: var(--navy); }
+
+.header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+}
+
+nav a {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+  margin-left: 1.5rem;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+
+nav a:hover { color: var(--navy); }
+nav a.active { color: var(--navy); border-bottom: 1px solid var(--navy); }
+
+/* ═══════════════════════════════════════════════════════
+   SUBSCRIBE BANNER
+═══════════════════════════════════════════════════════ */
+.subscribe-banner {
+  background: var(--navy);
+  color: var(--white);
+  padding: 1.5rem var(--pad);
+  margin-bottom: 3rem;
+}
+
+.subscribe-banner .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.subscribe-copy {
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.subscribe-copy strong {
+  display: block;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.subscribe-copy span {
+  color: #a0b8d0;
+  font-size: 0.7rem;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.subscribe-form input {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 300;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  padding: 0.5rem 0.8rem;
+  outline: none;
+  width: 180px;
+  transition: border-color 0.15s;
+}
+
+.subscribe-form input::placeholder { color: rgba(255,255,255,0.4); }
+.subscribe-form input:focus { border-color: rgba(255,255,255,0.6); }
+
+.subscribe-form button {
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--white);
+  color: var(--navy);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.subscribe-form button:hover { opacity: 0.85; }
+
+.subscribe-msg {
+  font-size: 0.72rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  display: none;
+}
+
+.subscribe-msg.success { color: #7dd3a8; display: block; }
+.subscribe-msg.error   { color: #f87171; display: block; }
+
+/* ═══════════════════════════════════════════════════════
+   BRIEF LOADING STATE
+═══════════════════════════════════════════════════════ */
+.loading {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--mid);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BRIEF CONTENT
+═══════════════════════════════════════════════════════ */
+#brief-content { display: none; }
+
+.lede {
+  margin-bottom: 3rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--navy);
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+/* ── PILLARS ── */
+.pillar { margin-bottom: 3rem; }
+
+.pillar-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.pillar-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+/* ── STORIES ── */
+.story {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.story:last-child { border-bottom: none; padding-bottom: 0; }
+
+.story-headline {
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.01em;
+}
+
+.story-what {
+  font-size: 0.8rem;
+  color: #444;
+  margin-bottom: 0.8rem;
+  line-height: 1.75;
+}
+
+.so-what {
+  background: var(--navy-lt);
+  border-left: 2px solid var(--navy);
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.so-what-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.so-what p { font-size: 0.8rem; line-height: 1.75; }
+
+.source-link {
+  font-size: 0.68rem;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+  transition: color 0.15s;
+}
+
+.source-link:hover { color: var(--navy); }
+
+/* ── PROFILE ── */
+.profile-card { border: 1px solid var(--rule); margin-top: 0.5rem; }
+
+.profile-name-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--navy);
+  color: var(--white);
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.profile-name { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em; }
+.profile-title { font-size: 0.68rem; color: #a0b8d0; letter-spacing: 0.05em; }
+
+.profile-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+
+.profile-row:last-child { border-bottom: none; }
+
+.profile-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--mid);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-top: 0.15rem;
+}
+
+.profile-row p { font-size: 0.8rem; line-height: 1.75; }
+.watch-row { background: #f5f8fc; }
+.watch-row .profile-label { color: var(--navy); }
+
+/* ═══════════════════════════════════════════════════════
+   NO BRIEF STATE
+═══════════════════════════════════════════════════════ */
+.no-brief {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--mid);
+  font-size: 0.78rem;
+  line-height: 2;
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════ */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem 0 3rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.65rem;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .subscribe-banner .wrap { flex-direction: column; gap: 1rem; }
+  .profile-name-block { flex-direction: column; }
+  .profile-row { grid-template-columns: 1fr; gap: 0.2rem; }
+  .profile-label { padding-top: 0; }
+  .header-meta { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="logo">PACIFIC<span class="logo-accent">VECTOR</span></div>
+    <div class="header-meta">
+      <span id="brief-date">Japan Geopolitical Intelligence</span>
+      <nav>
+        <a href="index.html" class="active">Today</a>
+        <a href="archive.html">Archive</a>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<!-- SUBSCRIBE BANNER -->
+<div class="subscribe-banner">
+  <div class="wrap">
+    <div class="subscribe-copy">
+      <strong>Get Pacific Vector in your inbox</strong>
+      <span>Daily Japan geopolitical intelligence. Free.</span>
+    </div>
+    <div>
+      <div class="subscribe-form">
+        <input type="text"  id="sub-name"  placeholder="Your name"  autocomplete="name">
+        <input type="email" id="sub-email" placeholder="Your email" autocomplete="email">
+        <button onclick="handleSubscribe()">Subscribe →</button>
+      </div>
+      <div class="subscribe-msg" id="sub-msg"></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- LOADING STATE -->
+  <div class="loading" id="loading">Loading today's brief...</div>
+
+  <!-- NO BRIEF STATE -->
+  <div class="no-brief" id="no-brief">
+    No brief available yet today.<br>
+    Check back shortly or <a href="archive.html" style="color:var(--navy)">browse the archive</a>.
+  </div>
+
+  <!-- BRIEF CONTENT -->
+  <div id="brief-content">
+    <div class="lede" id="lede"></div>
+    <div id="sections"></div>
+    <div id="profile"></div>
+  </div>
+
+  <footer>
+    <span>PACIFIC VECTOR — Japan Geopolitical Intelligence</span>
+    <span>All analysis grounded in sourced reporting</span>
+  </footer>
+
+</div>
+
+<script>
+// ── LOAD TODAY'S BRIEF ────────────────────────────────
+async function loadBrief() {
+  try {
+    const res = await fetch('/api/brief');
+    if (!res.ok) throw new Error('No brief');
+    const brief = await res.json();
+    renderBrief(brief);
+  } catch (e) {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('no-brief').style.display = 'block';
+  }
+}
+
+function renderBrief(brief) {
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('brief-content').style.display = 'block';
+  document.getElementById('brief-date').textContent = brief.date;
+  document.title = `Pacific Vector — ${brief.date}`;
+
+  // Lede
+  document.getElementById('lede').textContent = brief.opening_line || '';
+
+  // Sections
+  const sectionsEl = document.getElementById('sections');
+  sectionsEl.innerHTML = '';
+  for (const section of brief.sections || []) {
+    const storiesHtml = (section.stories || []).map(s => `
+      <article class="story">
+        <h3 class="story-headline">${s.headline}</h3>
+        <p class="story-what">${s.what_happened}</p>
+        <div class="so-what">
+          <span class="so-what-label">// so what</span>
+          <p>${s.so_what}</p>
+        </div>
+        <a class="source-link" href="${s.url}" target="_blank" rel="noopener">↗ ${s.source}</a>
+      </article>
+    `).join('');
+
+    sectionsEl.innerHTML += `
+      <section class="pillar">
+        <div class="pillar-header">
+          <span class="pillar-label">— ${section.title}</span>
+        </div>
+        ${storiesHtml}
+      </section>
+    `;
+  }
+
+  // Profile
+  const p = brief.profile || {};
+  document.getElementById('profile').innerHTML = `
+    <section class="pillar">
+      <div class="pillar-header">
+        <span class="pillar-label">— TODAY'S FIGURE</span>
+      </div>
+      <div class="profile-card">
+        <div class="profile-name-block">
+          <span class="profile-name">${p.name || ''}</span>
+          <span class="profile-title">${p.title || ''}</span>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">who</span>
+          <p>${p.who_they_are || ''}</p>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">background</span>
+          <p>${p.background || ''}</p>
+        </div>
+        <div class="profile-row">
+          <span class="profile-label">positions</span>
+          <p>${p.known_positions || ''}</p>
+        </div>
+        <div class="profile-row watch-row">
+          <span class="profile-label">watch</span>
+          <p>${p.watch || ''}</p>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+// ── SUBSCRIBE ─────────────────────────────────────────
+async function handleSubscribe() {
+  const name  = document.getElementById('sub-name').value.trim();
+  const email = document.getElementById('sub-email').value.trim();
+  const msg   = document.getElementById('sub-msg');
+
+  if (!name || !email) {
+    msg.className = 'subscribe-msg error';
+    msg.textContent = 'Please enter your name and email.';
+    return;
+  }
+
+  const btn = document.querySelector('.subscribe-form button');
+  btn.textContent = 'Subscribing...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      msg.className = 'subscribe-msg success';
+      msg.textContent = '✓ You\'re subscribed. Pacific Vector arrives tomorrow morning.';
+      document.getElementById('sub-name').value = '';
+      document.getElementById('sub-email').value = '';
+      btn.textContent = 'Subscribed ✓';
+    } else {
+      throw new Error(data.error || 'Subscription failed');
+    }
+  } catch (e) {
+    msg.className = 'subscribe-msg error';
+    msg.textContent = 'Something went wrong. Please try again.';
+    btn.textContent = 'Subscribe →';
+    btn.disabled = false;
+  }
+}
+
+// Allow Enter key to subscribe
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    const active = document.activeElement;
+    if (active && (active.id === 'sub-name' || active.id === 'sub-email')) {
+      handleSubscribe();
+    }
+  }
+});
+
+loadBrief();
+</script>
+</body>
+</html>
