@@ -5,7 +5,9 @@ on:
     # 7am Tokyo time = 22:00 UTC (Tokyo is UTC+9)
     - cron: '0 22 * * *'
   workflow_dispatch:
-    # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
 
 jobs:
   generate-brief:
@@ -14,8 +16,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,13 +38,13 @@ jobs:
           DATE=$(date +%Y-%m-%d)
           if [ -f "output/pacific_vector_${DATE}.json" ]; then
             cp "output/pacific_vector_${DATE}.json" "briefs/pacific_vector_${DATE}.json"
-            echo "Brief copied to briefs folder"
+            echo "Brief copied successfully"
           else
             echo "No brief file found for today"
             ls output/ || echo "Output folder empty"
           fi
 
-      - name: Commit and push brief to GitHub
+      - name: Commit and push brief
         run: |
           git config --global user.email "brief@pacific-vector.com"
           git config --global user.name "Pacific Vector Bot"
