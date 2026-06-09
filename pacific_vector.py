@@ -1,84 +1,120 @@
 #!/usr/bin/env python3
 """
-PACIFIC VECTOR — Daily Japan Geopolitical Brief Generator
-Run this script each morning to generate your brief.
+PACIFIC VECTOR v2.0 — Daily Japan Geopolitical Brief Generator
+RSS-powered. No NewsAPI dependency.
 """
 
 import os
 import json
 import datetime
 import requests
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 # ── CONFIGURATION ──────────────────────────────────────────────────────────────
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "YOUR_ANTHROPIC_KEY_HERE")
-NEWS_API_KEY      = os.environ.get("NEWS_API_KEY",      "YOUR_NEWSAPI_KEY_HERE")
+RESEND_API_KEY    = os.environ.get("RESEND_API_KEY",    "re_FpjEoxpK_AGakJyHhLSkmiJgZMUjz1ihX")
 OUTPUT_DIR        = Path("./output")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# Approved sources — Pacific Vector only reads these
-APPROVED_SOURCES = [
-    "Japan Times",
-    "NHK World",
-    "The Diplomat",
-    "Reuters",
-    "Associated Press",
-    "East Asia Forum",
-    "Nikkei Asia",
-    "CGTN",
-    "Xinhua",
+# ── CHANGE COLOURS HERE (email) ───────────────────────────────────────────────
+DELIVER_TO_EMAIL  = ["stuartgarratt@hotmail.com"]
+SEND_FROM_EMAIL   = "brief@pacific-vector.com"
+ALERT_EMAIL       = "stuartgarratt@hotmail.com"  # Where to send failure alerts
+
+# ── RSS FEED SOURCES ───────────────────────────────────────────────────────────
+# To add a source: add a new dict to this list
+# To remove a source: delete or comment out the line
+RSS_FEEDS = [
+    {"name": "Japan Times",     "url": "https://www.japantimes.co.jp/feed/"},
+    {"name": "NHK World",       "url": "https://www3.nhk.or.jp/nhkworld/en/news/feeds/"},
+    {"name": "The Diplomat",    "url": "https://thediplomat.com/feed/"},
+    {"name": "East Asia Forum", "url": "https://www.eastasiaforum.org/feed/"},
+    {"name": "Reuters",         "url": "https://feeds.reuters.com/reuters/worldNews"},
+    {"name": "CSIS",            "url": "https://www.csis.org/rss.xml"},
+    {"name": "Stimson Center",  "url": "https://www.stimson.org/feed/"},
 ]
 
-# Search queries targeting your four pillars
-NEWS_QUERIES = [
-    "Japan China relations geopolitics",
-    "Japan United States alliance security",
-    "Indo-Pacific QUAD strategy Japan",
-    "Japan domestic politics LDP",
-    "Japan Senkaku defense military",
-    "Japan foreign policy diplomacy",
+# Keywords to filter relevant articles (must contain at least one)
+RELEVANCE_KEYWORDS = [
+    "japan", "japanese", "tokyo", "kishida", "koizumi", "ishiba",
+    "china", "beijing", "senkaku", "quad", "indo-pacific",
+    "ldp", "jsdf", "us-japan", "japan-us", "asia-pacific",
+    "taiwan", "korea", "north korea", "asean", "g7",
 ]
 
-# ── STEP 1: FETCH NEWS ─────────────────────────────────────────────────────────
+
+# ── STEP 1: FETCH NEWS VIA RSS ────────────────────────────────────────────────
 def fetch_articles():
-    """Pull articles from NewsAPI across all pillars."""
-    print("📡 Fetching news from approved sources...")
+    """Pull articles from RSS feeds and filter for Japan relevance."""
+    print("📡 Fetching news from RSS feeds...")
     articles = []
     seen_titles = set()
+    cutoff = datetime.datetime.now() - datetime.timedelta(days=2)
 
-    for query in NEWS_QUERIES:
-        url = "https://newsapi.org/v2/everything"
-        params = {
-            "q": query,
-            "language": "en",
-            "sortBy": "publishedAt",
-            "pageSize": 10,
-            "from": (datetime.datetime.now() - datetime.timedelta(days=2)).strftime("%Y-%m-%d"),
-            "apiKey": NEWS_API_KEY,
-        }
+    for feed in RSS_FEEDS:
         try:
-            resp = requests.get(url, params=params, timeout=10)
-            data = resp.json()
-            for a in data.get("articles", []):
-                title = a.get("title", "")
-                if title and title not in seen_titles:
-                    seen_titles.add(title)
-                    articles.append({
-                        "title":       title,
-                        "source":      a.get("source", {}).get("name", "Unknown"),
-                        "url":         a.get("url", ""),
-                        "description": a.get("description", ""),
-                        "content":     a.get("content", ""),
-                        "publishedAt": a.get("publishedAt", ""),
-                    })
-        except Exception as e:
-            print(f"  ⚠️  Query '{query}' failed: {e}")
+            headers = {"User-Agent": "Pacific Vector Bot/2.0"}
+            resp = requests.get(feed["url"], headers=headers, timeout=15)
+            resp.raise_for_status()
 
-    print(f"  ✓ {len(articles)} articles collected")
+            # Parse RSS XML
+            root = ET.fromstring(resp.content)
+
+            # Handle both RSS and Atom formats
+            items = root.findall(".//item") or root.findall(".//{http://www.w3.org/2005/Atom}entry")
+
+            feed_count = 0
+            for item in items:
+                # Extract fields (handles both RSS and Atom)
+                title   = _get_text(item, ["title"])
+                url     = _get_text(item, ["link", "guid"])
+                desc    = _get_text(item, ["description", "summary", "{http://www.w3.org/2005/Atom}summary"])
+                pubdate = _get_text(item, ["pubDate", "published", "updated"])
+
+                if not title or title in seen_titles:
+                    continue
+
+                # Check relevance
+                combined = (title + " " + (desc or "")).lower()
+                if not any(kw in combined for kw in RELEVANCE_KEYWORDS):
+                    continue
+
+                seen_titles.add(title)
+                articles.append({
+                    "title":       title,
+                    "source":      feed["name"],
+                    "url":         url or "",
+                    "description": desc or "",
+                    "content":     desc or "",
+                    "publishedAt": pubdate or "",
+                })
+                feed_count += 1
+
+            print(f"  ✓ {feed['name']}: {feed_count} relevant articles")
+
+        except Exception as e:
+            print(f"  ⚠️  {feed['name']} failed: {e}")
+
+    print(f"\n  📰 Total: {len(articles)} articles collected")
     return articles
 
 
-# ── STEP 2: GENERATE BRIEF VIA CLAUDE ─────────────────────────────────────────
+def _get_text(element, tags):
+    """Helper to extract text from XML element trying multiple tag names."""
+    for tag in tags:
+        el = element.find(tag)
+        if el is not None:
+            # For <link> tags that use href attribute (Atom)
+            if el.text:
+                return el.text.strip()
+            href = el.get("href")
+            if href:
+                return href
+    return None
+
+
+# ── STEP 2: GENERATE BRIEF VIA CLAUDE ────────────────────────────────────────
 def generate_brief(articles):
     """Send articles to Claude and generate the Pacific Vector brief."""
     print("🧠 Sending to Claude for analysis...")
@@ -87,7 +123,7 @@ def generate_brief(articles):
 
     # Format articles for the prompt
     articles_text = ""
-    for i, a in enumerate(articles[:40], 1):  # cap at 40 articles
+    for i, a in enumerate(articles[:20], 1):
         articles_text += f"""
 [ARTICLE {i}]
 Title: {a['title']}
@@ -95,7 +131,6 @@ Source: {a['source']}
 URL: {a['url']}
 Published: {a['publishedAt']}
 Summary: {a['description']}
-Content: {a['content'][:500] if a['content'] else 'N/A'}
 ---"""
 
     prompt = f"""You are the editor of PACIFIC VECTOR, a precision daily intelligence brief on Japan geopolitics for a senior diplomat.
@@ -145,13 +180,13 @@ OUTPUT FORMAT — return valid JSON exactly matching this structure:
     "name": "Full name of the most significant Japanese political figure in today's news",
     "title": "Their current role",
     "who_they_are": "2-3 sentences on who they are and why they matter today.",
-    "background": "Career and political lineage in 1-2 sentences. Faction, who they owe.",
+    "background": "Career and political lineage in 1-2 sentences.",
     "known_positions": "Their stance on China, US alliance, defence. Blunt.",
     "watch": "One thing to watch with this person right now."
   }}
 }}
 
-Include 2-4 stories per section where the articles support it. If a section has no relevant articles today, include 1 story with a note that coverage was limited.
+Include 2-4 stories per section where articles support it. If a section has no relevant articles, include 1 story noting limited coverage.
 
 ARTICLES:
 {articles_text}
@@ -173,9 +208,13 @@ Return only the JSON. No preamble, no markdown fences."""
         "https://api.anthropic.com/v1/messages",
         headers=headers,
         json=body,
-        timeout=60,
+        timeout=120,
     )
     result = resp.json()
+
+    if "error" in result:
+        raise Exception(f"Claude API error: {result['error']}")
+
     raw = result["content"][0]["text"].strip()
 
     # Strip markdown fences if present
@@ -190,7 +229,7 @@ Return only the JSON. No preamble, no markdown fences."""
     return brief
 
 
-# ── STEP 3: RENDER HTML ────────────────────────────────────────────────────────
+# ── STEP 3: RENDER HTML ───────────────────────────────────────────────────────
 def render_html(brief):
     """Render the brief as a minimal monospace HTML page."""
     print("🎨 Rendering HTML...")
@@ -265,214 +304,42 @@ def render_html(brief):
     --rule:    #e5e5e5;
     --mono:    'IBM Plex Mono', monospace;
   }}
-
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-
-  body {{
-    background: var(--white);
-    color: var(--ink);
-    font-family: var(--mono);
-    font-weight: 300;
-    font-size: 13px;
-    line-height: 1.75;
-  }}
-
+  body {{ background: var(--white); color: var(--ink); font-family: var(--mono); font-weight: 300; font-size: 13px; line-height: 1.75; }}
   a {{ color: inherit; text-decoration: none; }}
-
-  .wrap {{
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }}
-
-  /* ── HEADER ── */
-  header {{
-    padding: 3rem 0 2rem;
-    border-bottom: 1px solid var(--ink);
-    margin-bottom: 2.5rem;
-  }}
-
-  .logo {{
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-  }}
-
+  .wrap {{ max-width: 720px; margin: 0 auto; padding: 0 2rem; }}
+  header {{ padding: 3rem 0 2rem; border-bottom: 1px solid var(--ink); margin-bottom: 2.5rem; }}
+  .logo {{ font-size: 1.1rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; }}
   .logo-accent {{ color: var(--navy); }}
-
-  .meta {{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-    font-size: 0.72rem;
-    color: var(--mid);
-    letter-spacing: 0.08em;
-  }}
-
-  /* ── LEDE ── */
-  .lede {{
-    margin-bottom: 3rem;
-    padding-left: 1rem;
-    border-left: 2px solid var(--navy);
-    font-size: 0.85rem;
-    line-height: 1.8;
-    color: var(--ink);
-  }}
-
-  /* ── PILLARS ── */
-  .pillar {{
-    margin-bottom: 3rem;
-  }}
-
-  .pillar-header {{
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
-  }}
-
-  .pillar-label {{
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--navy);
-  }}
-
-  /* ── STORIES ── */
-  .story {{
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--rule);
-  }}
-
-  .story:last-child {{
-    border-bottom: none;
-    padding-bottom: 0;
-  }}
-
-  .story-headline {{
-    font-size: 0.88rem;
-    font-weight: 500;
-    line-height: 1.5;
-    margin-bottom: 0.6rem;
-    letter-spacing: 0.01em;
-  }}
-
-  .story-what {{
-    font-size: 0.8rem;
-    color: #444;
-    margin-bottom: 0.8rem;
-    line-height: 1.75;
-  }}
-
-  .so-what {{
-    background: var(--navy-lt);
-    border-left: 2px solid var(--navy);
-    padding: 0.8rem 1rem;
-    margin-bottom: 0.8rem;
-  }}
-
-  .so-what-label {{
-    font-size: 0.62rem;
-    font-weight: 500;
-    color: var(--navy);
-    letter-spacing: 0.12em;
-    display: block;
-    margin-bottom: 0.3rem;
-  }}
-
-  .so-what p {{
-    font-size: 0.8rem;
-    line-height: 1.75;
-    color: var(--ink);
-  }}
-
-  .source-link {{
-    font-size: 0.68rem;
-    color: var(--mid);
-    letter-spacing: 0.05em;
-    transition: color 0.15s;
-  }}
-
+  .meta {{ display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.72rem; color: var(--mid); letter-spacing: 0.08em; }}
+  .lede {{ margin-bottom: 3rem; padding-left: 1rem; border-left: 2px solid var(--navy); font-size: 0.85rem; line-height: 1.8; }}
+  .pillar {{ margin-bottom: 3rem; }}
+  .pillar-header {{ margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); }}
+  .pillar-label {{ font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--navy); }}
+  .story {{ margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--rule); }}
+  .story:last-child {{ border-bottom: none; padding-bottom: 0; }}
+  .story-headline {{ font-size: 0.88rem; font-weight: 500; line-height: 1.5; margin-bottom: 0.6rem; }}
+  .story-what {{ font-size: 0.8rem; color: #444; margin-bottom: 0.8rem; line-height: 1.75; }}
+  .so-what {{ background: var(--navy-lt); border-left: 2px solid var(--navy); padding: 0.8rem 1rem; margin-bottom: 0.8rem; }}
+  .so-what-label {{ font-size: 0.62rem; font-weight: 500; color: var(--navy); letter-spacing: 0.12em; display: block; margin-bottom: 0.3rem; }}
+  .so-what p {{ font-size: 0.8rem; line-height: 1.75; }}
+  .source-link {{ font-size: 0.68rem; color: var(--mid); letter-spacing: 0.05em; }}
   .source-link:hover {{ color: var(--navy); }}
-
-  /* ── PROFILE ── */
-  .profile-card {{
-    border: 1px solid var(--rule);
-  }}
-
-  .profile-name-block {{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid var(--rule);
-    background: var(--navy);
-    color: var(--white);
-  }}
-
-  .profile-name {{
-    font-size: 0.88rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-  }}
-
-  .profile-title {{
-    font-size: 0.68rem;
-    color: #a0b8d0;
-    letter-spacing: 0.05em;
-  }}
-
-  .profile-row {{
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 1rem;
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid var(--rule);
-    align-items: start;
-  }}
-
+  .profile-card {{ border: 1px solid var(--rule); margin-top: 0.5rem; }}
+  .profile-name-block {{ display: flex; justify-content: space-between; align-items: baseline; padding: 0.8rem 1rem; background: var(--navy); color: var(--white); flex-wrap: wrap; gap: 0.3rem; }}
+  .profile-name {{ font-size: 0.88rem; font-weight: 500; }}
+  .profile-title {{ font-size: 0.68rem; color: #a0b8d0; }}
+  .profile-row {{ display: grid; grid-template-columns: 90px 1fr; gap: 1rem; padding: 0.8rem 1rem; border-bottom: 1px solid var(--rule); align-items: start; }}
   .profile-row:last-child {{ border-bottom: none; }}
-
-  .profile-label {{
-    font-size: 0.62rem;
-    font-weight: 500;
-    color: var(--mid);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding-top: 0.15rem;
-  }}
-
-  .profile-row p {{
-    font-size: 0.8rem;
-    line-height: 1.75;
-  }}
-
+  .profile-label {{ font-size: 0.62rem; font-weight: 500; color: var(--mid); letter-spacing: 0.12em; text-transform: uppercase; padding-top: 0.15rem; }}
+  .profile-row p {{ font-size: 0.8rem; line-height: 1.75; }}
   .watch-row {{ background: #f5f8fc; }}
   .watch-row .profile-label {{ color: var(--navy); }}
-
-  /* ── FOOTER ── */
-  footer {{
-    margin-top: 3rem;
-    padding: 1.5rem 0 3rem;
-    border-top: 1px solid var(--rule);
-    font-size: 0.65rem;
-    color: var(--mid);
-    letter-spacing: 0.08em;
-  }}
-
-  @media (max-width: 600px) {{
-    .profile-name-block {{ flex-direction: column; gap: 0.2rem; }}
-    .profile-row {{ grid-template-columns: 1fr; gap: 0.2rem; }}
-    .profile-label {{ padding-top: 0; }}
-  }}
+  footer {{ margin-top: 3rem; padding: 1.5rem 0 3rem; border-top: 1px solid var(--rule); font-size: 0.65rem; color: var(--mid); letter-spacing: 0.08em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }}
 </style>
 </head>
 <body>
-
 <div class="wrap">
-
   <header>
     <div class="logo">PACIFIC<span class="logo-accent">VECTOR</span></div>
     <div class="meta">
@@ -480,18 +347,15 @@ def render_html(brief):
       <span>Japan Geopolitical Intelligence</span>
     </div>
   </header>
-
   <div class="lede">{brief.get('opening_line', '')}</div>
-
   <main>
     {sections_html}
     {profile_html}
   </main>
-
   <footer>
-    PACIFIC VECTOR — All analysis grounded in sourced reporting. Follow links to verify. Generated {brief['date']}.
+    <span>PACIFIC VECTOR — Japan Geopolitical Intelligence</span>
+    <span>All analysis grounded in sourced reporting</span>
   </footer>
-
 </div>
 </body>
 </html>"""
@@ -499,36 +363,25 @@ def render_html(brief):
     return html
 
 
-# ── STEP 4: SAVE OUTPUT ────────────────────────────────────────────────────────
+# ── STEP 4: SAVE OUTPUT ───────────────────────────────────────────────────────
 def save_output(brief, html):
     today_str = datetime.datetime.now().strftime("%Y-%m-%d")
-
-    # Save HTML
     html_path = OUTPUT_DIR / f"pacific_vector_{today_str}.html"
-    html_path.write_text(html, encoding="utf-8")
-
-    # Save JSON (useful for email formatting later)
     json_path = OUTPUT_DIR / f"pacific_vector_{today_str}.json"
+    html_path.write_text(html, encoding="utf-8")
     json_path.write_text(json.dumps(brief, indent=2, ensure_ascii=False), encoding="utf-8")
-
     print(f"  ✓ HTML saved → {html_path}")
     print(f"  ✓ JSON saved → {json_path}")
     return html_path
 
-# ── STEP 5: SEND EMAIL VIA RESEND ─────────────────────────────────────────────
-RESEND_API_KEY   = os.environ.get("RESEND_API_KEY", "YOUR_RESEND_KEY_HERE")
-DELIVER_TO_EMAIL = ["stuartgarratt@hotmail.com"]
-SEND_FROM_EMAIL  = "brief@pacific-vector.com"
 
+# ── STEP 5: SEND EMAIL VIA RESEND ────────────────────────────────────────────
 def send_email(brief, html):
     """Send the brief as an HTML email via Resend."""
     print("📧 Sending email via Resend...")
     resp = requests.post(
         "https://api.resend.com/emails",
-        headers={
-            "Authorization": f"Bearer {RESEND_API_KEY}",
-            "Content-Type":  "application/json",
-        },
+        headers={"Authorization": f"Bearer {RESEND_API_KEY}", "Content-Type": "application/json"},
         json={
             "from":    SEND_FROM_EMAIL,
             "to":      DELIVER_TO_EMAIL,
@@ -543,18 +396,61 @@ def send_email(brief, html):
         print(f"  ⚠️  Email failed: {resp.status_code} — {resp.text}")
 
 
-# ── MAIN ───────────────────────────────────────────────────────────────────────
+# ── STEP 6: SEND FAILURE ALERT ────────────────────────────────────────────────
+def send_alert(error_message):
+    """Email an alert if the brief fails to generate."""
+    print("🚨 Sending failure alert...")
+    today = datetime.datetime.now().strftime("%A, %d %B %Y")
+    try:
+        requests.post(
+            "https://api.resend.com/emails",
+            headers={"Authorization": f"Bearer {RESEND_API_KEY}", "Content-Type": "application/json"},
+            json={
+                "from":    SEND_FROM_EMAIL,
+                "to":      [ALERT_EMAIL],
+                "subject": f"⚠️ Pacific Vector failed — {today}",
+                "html":    f"""
+                    <div style="font-family: monospace; padding: 2rem; color: #0d0d0d;">
+                        <h2 style="color: #c41e3a;">Pacific Vector — Brief Generation Failed</h2>
+                        <p><strong>Date:</strong> {today}</p>
+                        <p><strong>Error:</strong></p>
+                        <pre style="background: #f5f5f5; padding: 1rem; font-size: 12px;">{error_message}</pre>
+                        <p>Check GitHub Actions logs for details.</p>
+                    </div>
+                """,
+            },
+            timeout=15,
+        )
+        print("  ✓ Alert sent")
+    except Exception as e:
+        print(f"  ⚠️  Alert failed: {e}")
+
+
+# ── MAIN ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     print("\n╔══════════════════════════════════════╗")
-    print("║        PACIFIC VECTOR  v1.0          ║")
+    print("║        PACIFIC VECTOR  v2.0          ║")
     print("║   Japan Geopolitical Intelligence    ║")
     print("╚══════════════════════════════════════╝\n")
 
-    articles  = fetch_articles()
-    brief     = generate_brief(articles)
-    html      = render_html(brief)
-    html_path = save_output(brief, html)
-    send_email(brief, html)
+    try:
+        articles = fetch_articles()
 
-    print(f"\n✅ Pacific Vector brief ready.")
-    print(f"   Open: {html_path.resolve()}\n")
+        if len(articles) == 0:
+            raise Exception("No articles collected from any RSS feed. All feeds may be down or blocked.")
+
+        if len(articles) < 3:
+            print(f"  ⚠️  Warning: only {len(articles)} articles collected. Brief may be thin.")
+
+        brief     = generate_brief(articles)
+        html      = render_html(brief)
+        html_path = save_output(brief, html)
+        send_email(brief, html)
+
+        print(f"\n✅ Pacific Vector brief ready.")
+        print(f"   Open: {html_path.resolve()}\n")
+
+    except Exception as e:
+        print(f"\n❌ Pacific Vector failed: {e}")
+        send_alert(str(e))
+        raise  # Re-raise so GitHub Actions marks the run as failed
