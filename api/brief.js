@@ -1,32 +1,35 @@
 // api/brief.js
-// Serves today's brief JSON to the website frontend
-// Vercel Serverless Function
+// Serves the most recent available brief to the website frontend
 
 import fs from 'fs';
 import path from 'path';
 
 export default function handler(req, res) {
-  // Allow CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
 
   try {
-    const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-    const briefPath = path.join(process.cwd(), 'briefs', `pacific_vector_${today}.json`);
+    const briefsDir = path.join(process.cwd(), 'briefs');
 
-    if (!fs.existsSync(briefPath)) {
-      // Try yesterday's brief as fallback
-      const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-      const fallbackPath = path.join(process.cwd(), 'briefs', `pacific_vector_${yesterday}.json`);
-
-      if (!fs.existsSync(fallbackPath)) {
-        return res.status(404).json({ error: 'No brief available' });
-      }
-
-      const brief = JSON.parse(fs.readFileSync(fallbackPath, 'utf8'));
-      return res.status(200).json(brief);
+    if (!fs.existsSync(briefsDir)) {
+      return res.status(404).json({ error: 'No briefs directory found' });
     }
 
+    // Get all JSON files, sort by filename (which is date-based), take the latest
+    const files = fs.readdirSync(briefsDir)
+      .filter(f => f.startsWith('pacific_vector_') && f.endsWith('.json'))
+      .sort()
+      .reverse();
+
+    if (files.length === 0) {
+      return res.status(404).json({ error: 'No briefs available' });
+    }
+
+    // Always serve the most recent brief
+    const latestFile = files[0];
+    const briefPath = path.join(briefsDir, latestFile);
     const brief = JSON.parse(fs.readFileSync(briefPath, 'utf8'));
+
     res.status(200).json(brief);
 
   } catch (err) {
