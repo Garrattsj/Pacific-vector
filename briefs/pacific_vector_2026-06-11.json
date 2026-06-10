@@ -1,0 +1,90 @@
+{
+  "date": "Thursday, 11 June 2026",
+  "opening_line": "Tokyo is converting defense hardware into strategic leverage while Beijing contests every maritime boundary in reach.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "PHILIPPINES SEEKS MARITIME BORDER TALKS WITH JAPAN DESPITE BEIJING OPPOSITION",
+          "what_happened": "Manila is planning sea border negotiations with Tokyo. China, which has territorial disputes with both countries in the East and South China Seas, opposes the move.",
+          "so_what": "This is boundary-setting at China's expense. If Japan formalizes maritime lines with the Philippines, it creates legal scaffolding that Beijing will struggle to dismantle and further isolates China's expansive claims in regional waters.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/philippines-plan-japan-talks/"
+        },
+        {
+          "headline": "YOHEI KONO, LDP'S LEADING CHINA DOVE, DIES AT 89",
+          "what_happened": "Former Lower House speaker Yohei Kono, a prominent advocate for stable ties with China and South Korea within the ruling LDP, has died. He was a leading dove in a party increasingly dominated by hawks.",
+          "so_what": "His death removes one of the last influential voices within the LDP establishment arguing for engagement over containment with Beijing. The party's center of gravity on China policy shifts further toward confrontation.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/yohei-kono-death/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "CANADA JOINS JAPAN-UK-ITALY FIGHTER PROJECT AS OBSERVER",
+          "what_happened": "Canada will participate as an observer in the trilateral next-generation fighter program. Observer status grants access to sensitive project information including development progress.",
+          "so_what": "Ottawa's involvement widens the coalition backing Japan's most ambitious defense industrial project and signals transatlantic convergence on Indo-Pacific security architecture. It also strengthens Japan's claim to be a Tier 1 defense technology partner beyond the bilateral US relationship.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/canada-joint-fighter-project/"
+        },
+        {
+          "headline": "TOKYO WEAPONIZES RETIRED MILITARY EQUIPMENT AS STRATEGIC TOOL",
+          "what_happened": "Japan is exporting used military gear to partner nations. Analysts assess this approach could deliver decades of strategic returns through dependence on Japanese maintenance, training, and spare parts.",
+          "so_what": "This is influence-building through logistics. By creating long-term operational dependencies, Tokyo locks in relationships that survive political shifts and generates strategic leverage without the diplomatic sensitivity of frontline weapons sales.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/japan-defense-exports-strategy-analysis/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "TAKAICHI SECURES LNG SUPPLY DEAL WITH MALAYSIA",
+          "what_happened": "Prime Minister Sanae Takaichi and Malaysian PM Anwar Ibrahim agreed on enhanced energy security cooperation, including LNG supplies, during a Tokyo summit on Monday. The leaders also pledged to bolster maritime ties.",
+          "so_what": "Malaysia provides energy diversification away from Middle East chokepoints and maritime coordination in the South China Sea transit lanes. This is economic statecraft bundled with security alignment.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/japan-malaysia-takaichi-anwar/"
+        },
+        {
+          "headline": "MANILA DEMANDS BEIJING REMOVE ILLEGAL STRUCTURE FROM DISPUTED SHOAL",
+          "what_happened": "The Philippines called a Chinese structure in a contested shoal \"unauthorized and illegal.\" Beijing claims \"indisputable sovereignty\" over the area.",
+          "so_what": "Each structure China plants becomes a permanent fait accompli unless physically removed. Manila's public challenge tests whether verbal protests alone can check incremental territorial revision—recent history suggests they cannot.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/asia-pacific/philippines-china-structure-shoal/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "LDP AND DPP TO NEGOTIATE NATIONAL FLAG DESECRATION LAW",
+          "what_happened": "The ruling Liberal Democratic Party and the Democratic Party for the People will discuss legislation criminalizing vandalism of the national flag. The DPP wants to \"clarify what constitutes a crime.\"",
+          "so_what": "This is culture war legislation masquerading as legal clarity. The DPP's cooperation signals the party is willing to trade symbolic conservative priorities for leverage on economic policy—watch what they extract in return.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/tamaki-national-flag-vandalism-ldp/"
+        },
+        {
+          "headline": "JAPAN OFFICIALLY AUTHORIZES DIGITAL TEXTBOOKS FOR SCHOOLS",
+          "what_happened": "Under a new legal framework, local education boards will decide whether schools adopt print, digital, or hybrid textbooks. Digital textbooks are now officially recognized.",
+          "so_what": "Control over textbook format—and by extension content delivery and updates—shifts from the Ministry of Education to local boards. This decentralization could fragment national curriculum coherence but allows faster adaptation to technological change.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/digital-textbooks-approval/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Sanae Takaichi",
+    "title": "Prime Minister of Japan",
+    "who_they_are": "Takaichi is Japan's current prime minister, leading the government through a period of heightened regional security tensions and economic realignment. Her administration is actively building security partnerships across Southeast Asia while managing complex relations with China and the United States.",
+    "background": "A veteran LDP politician and former internal affairs minister, Takaichi represents the party's conservative wing and has long advocated for constitutional revision and stronger defense capabilities.",
+    "known_positions": "Hardline on China, viewing Beijing as the primary security threat. Strongly committed to the US alliance while simultaneously pushing for greater Japanese defense autonomy. Supports expanding Article 9 interpretation and defense exports.",
+    "watch": "How she balances defense industrial ambitions with alliance management—Tokyo's push into defense exports and multilateral fighter projects could create friction with Washington if not carefully coordinated."
+  }
+}
