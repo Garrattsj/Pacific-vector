@@ -1,0 +1,83 @@
+{
+  "date": "Wednesday, 10 June 2026",
+  "opening_line": "Japan is expanding its defense partnerships from Canada to the Philippines while managing the death of its most prominent China dove.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "YOHEI KONO, LDP'S LEADING CHINA DOVE, DIES AT 89",
+          "what_happened": "Former Lower House speaker Yohei Kono died at age 89. He was the ruling Liberal Democratic Party's most prominent advocate for stable ties with China and South Korea.",
+          "so_what": "Kono's death removes a key voice for engagement with Beijing at a time when Japan is aggressively expanding defense partnerships to counter Chinese pressure. His passing symbolizes the end of an era when influential LDP figures could champion accommodation with China without political cost.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/yohei-kono-death/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "CANADA JOINS JAPAN-UK-ITALY FIGHTER JET PROJECT AS OBSERVER",
+          "what_happened": "Canada will join the Japan-Italy-UK next-generation fighter project as an observer. Observer status grants access to sensitive information including project progress.",
+          "so_what": "This expands the strategic footprint of Japan's most ambitious defense industrial project beyond the original trilateral framework. Canada's participation deepens interoperability across Pacific and Atlantic theaters and signals growing comfort with Japan as a defense technology partner, not just a customer.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/canada-joint-fighter-project/"
+        },
+        {
+          "headline": "TOKYO BANKING ON STRATEGIC RETURNS FROM USED MILITARY EXPORTS",
+          "what_happened": "Japan is exporting retired military equipment to partner nations as part of a broader strategy. Analysts assess this could deliver decades of strategic returns.",
+          "so_what": "This is Japan converting its vast inventory of well-maintained hardware into influence. Used equipment exports create long-term dependencies on Tokyo for training, maintenance, and parts—binding partners into Japan's security orbit at lower political cost than new arms sales.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/japan-defense-exports-strategy-analysis/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "PHILIPPINES PURSUES SEA BORDER TALKS WITH JAPAN DESPITE BEIJING OPPOSITION",
+          "what_happened": "The Philippines plans maritime border talks with Japan. Beijing opposes the move, citing its claims over Taiwan and ongoing disputes with both Tokyo and Manila in the East and South China Seas.",
+          "so_what": "Manila is using maritime delimitation with Japan to establish precedents that challenge China's expansive claims. This is lawfare plus alliance-building—forcing Beijing to object publicly while Japan and the Philippines deepen practical coordination in overlapping maritime zones.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/philippines-plan-japan-talks/"
+        },
+        {
+          "headline": "TAKAICHI SECURES LNG DEAL WITH MALAYSIA, BOLSTERS MARITIME TIES",
+          "what_happened": "Prime Minister Sanae Takaichi and Malaysian leader Anwar Ibrahim agreed on energy security cooperation, including LNG supplies, during a Tokyo summit on Monday. The deal also includes strengthened maritime ties.",
+          "so_what": "Takaichi is locking in energy diversification away from Middle East dependence while building maritime cooperation with a key ASEAN state. Malaysia's geographic position astride the Malacca Strait makes this both an energy hedge and a South China Sea play.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/japan-malaysia-takaichi-anwar/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "LDP AND DPP MOVING TO CRIMINALIZE NATIONAL FLAG VANDALISM",
+          "what_happened": "The Liberal Democratic Party and Democratic Party for the People will discuss legislation to criminalize national flag vandalism. The DPP says the aim is to clarify what constitutes a crime.",
+          "so_what": "This signals nationalist legislation gaining traction across coalition lines. The DPP's involvement shows center-left parties are willing to support symbolic nationalism measures—possibly to insulate themselves from conservative attacks as security threats intensify.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/tamaki-national-flag-vandalism-ldp/"
+        },
+        {
+          "headline": "JAPAN MAKES DIGITAL TEXTBOOKS OFFICIAL FOR SCHOOLS",
+          "what_happened": "Japan has established a legal framework making digital textbooks official. Education boards will now decide whether schools adopt print, digital, or hybrid formats.",
+          "so_what": "This is infrastructure for information control and curriculum standardization in a digital age. The framework centralizes decision-making at the board level, making it easier to implement national priorities—including revised historical narratives or security education—uniformly across digital platforms.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/10/japan/politics/digital-textbooks-approval/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Sanae Takaichi",
+    "title": "Prime Minister of Japan",
+    "who_they_are": "Takaichi is Japan's current prime minister, actively conducting summit diplomacy to secure energy supplies and maritime partnerships across the Indo-Pacific. She is leading Japan's energy diversification strategy while deepening security cooperation with ASEAN states.",
+    "background": "Takaichi is a longtime LDP conservative who rose through the party's right wing, known for revisionist historical views and hawkish stances. She represents the nationalist faction that has consolidated control of the party's direction.",
+    "known_positions": "Hardline on China, deeply committed to the US alliance, and an advocate for expanding Japan's defense capabilities including offensive strike options. She supports remilitarization and has historically visited Yasukuni Shrine, signaling unwavering nationalist credentials.",
+    "watch": "Whether her energy diplomacy with Malaysia and similar ASEAN states can balance her hardline China posture without forcing Southeast Asian partners to choose sides—a test of Japan's ability to build coalitions without triggering blowback."
+  }
+}
