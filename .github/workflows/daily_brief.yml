@@ -2,7 +2,6 @@ name: Pacific Vector — Daily Brief
 
 on:
   schedule:
-    # 7am Tokyo time = 22:00 UTC (Tokyo is UTC+9)
     - cron: '0 22 * * *'
   workflow_dispatch:
 
@@ -32,16 +31,26 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: python3 pacific_vector.py
 
-      - name: Copy brief to website folder
+      - name: Copy brief to briefs folder
         run: |
           mkdir -p briefs
           DATE=$(date +%Y-%m-%d)
+          # Look in output/ folder where the script saves files
           if [ -f "output/pacific_vector_${DATE}.json" ]; then
             cp "output/pacific_vector_${DATE}.json" "briefs/pacific_vector_${DATE}.json"
-            echo "Brief copied successfully"
+            echo "✓ Brief copied: pacific_vector_${DATE}.json"
           else
-            echo "No brief file found for today"
-            ls output/ || echo "Output folder empty"
+            echo "Files in output/:"
+            ls output/ 2>/dev/null || echo "output/ folder is empty or missing"
+            # Try to find any JSON file generated today
+            FOUND=$(find output/ -name "*.json" -newer /tmp 2>/dev/null | head -1)
+            if [ -n "$FOUND" ]; then
+              cp "$FOUND" "briefs/pacific_vector_${DATE}.json"
+              echo "✓ Brief copied from: $FOUND"
+            else
+              echo "❌ No brief file found to copy"
+              exit 1
+            fi
           fi
 
       - name: Commit and push brief
