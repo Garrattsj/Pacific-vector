@@ -12,8 +12,19 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 # ── CONFIGURATION ──────────────────────────────────────────────────────────────
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "YOUR_ANTHROPIC_KEY_HERE")
-RESEND_API_KEY    = os.environ.get("RESEND_API_KEY",    "re_FpjEoxpK_AGakJyHhLSkmiJgZMUjz1ihX")
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+RESEND_API_KEY    = os.environ.get("RESEND_API_KEY", "")
+
+if not ANTHROPIC_API_KEY:
+    raise SystemExit(
+        "ERROR: ANTHROPIC_API_KEY environment variable is not set. "
+        "Set it before running this script (do not hardcode keys in this file)."
+    )
+if not RESEND_API_KEY:
+    raise SystemExit(
+        "ERROR: RESEND_API_KEY environment variable is not set. "
+        "Set it before running this script (do not hardcode keys in this file)."
+    )
 OUTPUT_DIR        = Path("./output")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -27,13 +38,28 @@ ALERT_EMAIL       = "stuartgarratt@hotmail.com"  # Where to send failure alerts
 # To remove a source: delete or comment out the line
 RSS_FEEDS = [
     {"name": "Japan Times",     "url": "https://www.japantimes.co.jp/feed/"},
-    {"name": "NHK World",       "url": "https://www3.nhk.or.jp/nhkworld/en/news/feeds/"},
+    {"name": "Kyodo News",      "url": "https://english.kyodonews.net/rss/all.xml"},
     {"name": "The Diplomat",    "url": "https://thediplomat.com/feed/"},
     {"name": "East Asia Forum", "url": "https://www.eastasiaforum.org/feed/"},
-    {"name": "Reuters",         "url": "https://feeds.reuters.com/reuters/worldNews"},
+    {"name": "Japan News (Yomiuri)", "url": "https://japannews.yomiuri.co.jp/feed/"},
     {"name": "CSIS",            "url": "https://www.csis.org/rss.xml"},
     {"name": "Stimson Center",  "url": "https://www.stimson.org/feed/"},
 ]
+# NOTES ON THIS UPDATE (Phase 2 RSS fix):
+#  - NHK World's English RSS feed has been discontinued/dead for some time
+#    (404). Replaced with Kyodo News Plus, a major English-language Japanese
+#    wire service with a reliable feed.
+#  - Reuters discontinued its public RSS feeds entirely (the old
+#    feeds.reuters.com URL is dead with no direct replacement). Replaced with
+#    The Japan News by The Yomiuri Shimbun, another major English Japan source.
+#  - East Asia Forum and Stimson Center were returning 403 errors, which is
+#    typically caused by sites blocking generic/bot User-Agent strings rather
+#    than the feed itself being down. The User-Agent below has been changed to
+#    a standard browser string to address this.
+#  - All entries use the existing try/except per-feed handling, so if any one
+#    of these still fails it will simply be skipped and logged, not crash the
+#    run. Run the script once and check the "Fetching news from RSS feeds..."
+#    output to confirm each source returns articles.
 
 # Keywords to filter relevant articles (must contain at least one)
 RELEVANCE_KEYWORDS = [
@@ -54,7 +80,11 @@ def fetch_articles():
 
     for feed in RSS_FEEDS:
         try:
-            headers = {"User-Agent": "Pacific Vector Bot/2.0"}
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                              "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                "Accept": "application/rss+xml, application/xml, text/xml, */*",
+            }
             resp = requests.get(feed["url"], headers=headers, timeout=15)
             resp.raise_for_status()
 
