@@ -15,12 +15,13 @@ Single source of truth for build progress across all phases. Check items off as 
 - [ ] Replace embedded GitHub personal access token in git remote URL with a credential helper / SSH, and rotate the token
 - [x] Add favicon
 - [x] Add social metadata (OG tags) — previews when shared on LinkedIn/X
+- [x] Fix masthead date bug — daily brief generator now uses JST instead of UTC for date stamps
 - [ ] Build About page — who's behind Pacific Vector, why trust it
 - [ ] Build Contact page — professional contact form
 - [ ] Mobile layout review — ensure brief reads well on phone
 - [ ] Confirm SSL certificate clean — no security warnings on any browser
 - [ ] Update footer links — About, Archive, Contact, Subscribe
-- [ ] Transition workflow to Claude Cowork (in progress — this session)
+- [x] Transition workflow to Claude Cowork
 
 ## Phase 3 — Backend Dashboard
 - [ ] Enable Vercel Analytics
