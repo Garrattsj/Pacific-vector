@@ -11,6 +11,15 @@ import requests
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+# Pacific Vector publishes on a Japan timezone schedule — always compute
+# "today" in JST so the masthead date matches the publish day, regardless
+# of the UTC time the GitHub Actions runner executes in.
+JST = datetime.timezone(datetime.timedelta(hours=9))
+
+
+def now_jst():
+    return datetime.datetime.now(JST)
+
 # ── CONFIGURATION ──────────────────────────────────────────────────────────────
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 RESEND_API_KEY    = os.environ.get("RESEND_API_KEY", "")
@@ -149,7 +158,7 @@ def generate_brief(articles):
     """Send articles to Claude and generate the Pacific Vector brief."""
     print("🧠 Sending to Claude for analysis...")
 
-    today = datetime.datetime.now().strftime("%A, %d %B %Y")
+    today = now_jst().strftime("%A, %d %B %Y")
 
     # Format articles for the prompt
     articles_text = ""
@@ -395,7 +404,7 @@ def render_html(brief):
 
 # ── STEP 4: SAVE OUTPUT ───────────────────────────────────────────────────────
 def save_output(brief, html):
-    today_str = datetime.datetime.now().strftime("%Y-%m-%d")
+    today_str = now_jst().strftime("%Y-%m-%d")
     html_path = OUTPUT_DIR / f"pacific_vector_{today_str}.html"
     json_path = OUTPUT_DIR / f"pacific_vector_{today_str}.json"
     html_path.write_text(html, encoding="utf-8")
@@ -430,7 +439,7 @@ def send_email(brief, html):
 def send_alert(error_message):
     """Email an alert if the brief fails to generate."""
     print("🚨 Sending failure alert...")
-    today = datetime.datetime.now().strftime("%A, %d %B %Y")
+    today = now_jst().strftime("%A, %d %B %Y")
     try:
         requests.post(
             "https://api.resend.com/emails",

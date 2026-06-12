@@ -34,7 +34,9 @@ jobs:
       - name: Copy brief to briefs folder
         run: |
           mkdir -p briefs
-          DATE=$(date +%Y-%m-%d)
+          # Use JST date to match the date written into the brief itself
+          # (the workflow runs at 22:00 UTC = 07:00 JST the next day)
+          DATE=$(TZ='Asia/Tokyo' date +%Y-%m-%d)
           # Look in output/ folder where the script saves files
           if [ -f "output/pacific_vector_${DATE}.json" ]; then
             cp "output/pacific_vector_${DATE}.json" "briefs/pacific_vector_${DATE}.json"
