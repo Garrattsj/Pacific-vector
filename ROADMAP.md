@@ -23,12 +23,22 @@ Single source of truth for build progress across all phases. Check items off as 
 - [x] Update footer links — About, Archive, Contact, Subscribe
 - [x] Transition workflow to Claude Cowork
 
-## Phase 3 — Backend Dashboard
+## Phase 3 — Backend Dashboard & Growth Foundations
+### Core delivery (fix first)
+- [ ] Wire up daily broadcast — send the brief to the full Resend audience, not just the personal inbox
+- [ ] Add unsubscribe link to every email (compliance + hygiene)
+- [ ] Add 404 page
+
+### Analytics & insight
 - [ ] Enable Vercel Analytics
-- [ ] Connect Resend dashboard
-- [ ] Build weekly stats email
-- [ ] Subscriber export (CSV)
+- [ ] Connect Resend dashboard (opens/clicks visibility)
 - [ ] UTM tracking
+- [ ] Subscriber export (CSV)
+- [ ] Build weekly stats email
+
+### Growth foundations
+- [ ] SEO basics — meta descriptions, sitemap.xml, robots.txt per page
+- [ ] Social share buttons on each story/brief
 
 ## Phase 4 — Content Quality
 - [ ] Fix and expand RSS sources further (NHK, Reuters, East Asia Forum, Stimson)
