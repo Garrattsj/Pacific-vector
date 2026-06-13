@@ -27,7 +27,7 @@ Single source of truth for build progress across all phases. Check items off as 
 ### Core delivery (fix first)
 - [ ] Wire up daily broadcast — send the brief to the full Resend audience, not just the personal inbox
 - [ ] Add unsubscribe link to every email (compliance + hygiene)
-- [ ] Add 404 page
+- [x] Add 404 page
 
 ### Analytics & insight
 - [ ] Enable Vercel Analytics
