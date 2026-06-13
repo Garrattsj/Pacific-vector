@@ -37,7 +37,7 @@ Single source of truth for build progress across all phases. Check items off as 
 - [ ] Build weekly stats email
 
 ### Growth foundations
-- [ ] SEO basics — meta descriptions, sitemap.xml, robots.txt per page
+- [x] SEO basics — meta descriptions, sitemap.xml, robots.txt per page
 - [ ] Social share buttons on each story/brief
 
 ## Phase 4 — Content Quality
