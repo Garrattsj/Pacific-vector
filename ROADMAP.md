@@ -18,7 +18,7 @@ Single source of truth for build progress across all phases. Check items off as 
 - [x] Fix masthead date bug — daily brief generator now uses JST instead of UTC for date stamps
 - [x] Build About page — who's behind Pacific Vector, why trust it
 - [x] Build Contact page — professional contact form
-- [ ] Mobile layout review — ensure brief reads well on phone
+- [x] Mobile layout review — ensure brief reads well on phone
 - [x] Confirm SSL certificate clean — no security warnings on any browser
 - [x] Update footer links — About, Archive, Contact, Subscribe
 - [x] Transition workflow to Claude Cowork
