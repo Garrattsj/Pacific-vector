@@ -30,7 +30,7 @@ Single source of truth for build progress across all phases. Check items off as 
 - [x] Add 404 page
 
 ### Analytics & insight
-- [ ] Enable Vercel Analytics
+- [x] Enable Vercel Analytics
 - [ ] Connect Resend dashboard (opens/clicks visibility)
 - [ ] UTM tracking
 - [ ] Subscriber export (CSV)
