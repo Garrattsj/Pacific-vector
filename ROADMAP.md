@@ -2,6 +2,12 @@
 
 Single source of truth for build progress across all phases. Check items off as completed.
 
+## North Star
+
+Pacific Vector is an AI-powered geopolitical intelligence platform for organisations exposed to Asia-Pacific risk — not, ultimately, a newsletter. The daily brief is the wedge: it builds audience, trust, and brand. The curated source corpus is the moat: it compounds in value and is hard to replicate. The Monitor / Ask / Brief platform is the product: decision-grade, sourced, auditable intelligence — briefings, memos, and risk packs that professionals can put in front of clients and stand behind.
+
+Full concept: see `BUSINESS_CONCEPT.md`.
+
 ## Phase 1 — Stability ✔ COMPLETE
 - [x] Replace NewsAPI with RSS feeds
 - [x] Fix 0 articles crash (graceful exit + alert email)
