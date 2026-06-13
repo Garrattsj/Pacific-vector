@@ -16,8 +16,8 @@ Single source of truth for build progress across all phases. Check items off as 
 - [x] Add favicon
 - [x] Add social metadata (OG tags) — previews when shared on LinkedIn/X
 - [x] Fix masthead date bug — daily brief generator now uses JST instead of UTC for date stamps
-- [ ] Build About page — who's behind Pacific Vector, why trust it
-- [ ] Build Contact page — professional contact form
+- [x] Build About page — who's behind Pacific Vector, why trust it
+- [x] Build Contact page — professional contact form
 - [ ] Mobile layout review — ensure brief reads well on phone
 - [x] Confirm SSL certificate clean — no security warnings on any browser
 - [ ] Update footer links — About, Archive, Contact, Subscribe

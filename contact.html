@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Pacific Vector</title>
+<title>Contact — Pacific Vector</title>
 
 <!-- Favicons -->
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
@@ -14,17 +14,17 @@
 <!-- Open Graph / social previews -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Pacific Vector">
-<meta property="og:title" content="About — Pacific Vector">
-<meta property="og:description" content="What Pacific Vector is, how each brief is put together, and the editorial standards behind it.">
+<meta property="og:title" content="Contact — Pacific Vector">
+<meta property="og:description" content="Get in touch with Pacific Vector.">
 <meta property="og:image" content="https://pacific-vector.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://pacific-vector.com/about.html">
+<meta property="og:url" content="https://pacific-vector.com/contact.html">
 
 <!-- Twitter card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About — Pacific Vector">
-<meta name="twitter:description" content="What Pacific Vector is, how each brief is put together, and the editorial standards behind it.">
+<meta name="twitter:title" content="Contact — Pacific Vector">
+<meta name="twitter:description" content="Get in touch with Pacific Vector.">
 <meta name="twitter:image" content="https://pacific-vector.com/assets/og-image.png">
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -136,18 +136,68 @@ nav a.active { color: var(--navy); border-bottom: 1px solid var(--navy); }
 
 .section p:last-child { margin-bottom: 0; }
 
-.disclaimer {
-  background: var(--navy-lt);
-  border-left: 2px solid var(--navy);
-  padding: 1rem 1.2rem;
+/* ── FORM ── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 480px;
 }
 
-.disclaimer p {
-  font-size: 0.78rem;
-  line-height: 1.8;
-  color: #333;
-  margin-bottom: 0;
+.form-row label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--mid);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
 }
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  font-family: var(--font);
+  font-size: 0.8rem;
+  font-weight: 300;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.form-row input:focus,
+.form-row textarea:focus { border-color: var(--navy); }
+
+.form-row textarea { resize: vertical; min-height: 120px; }
+
+.contact-form button {
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  align-self: flex-start;
+}
+
+.contact-form button:hover { opacity: 0.85; }
+.contact-form button:disabled { opacity: 0.5; cursor: default; }
+
+.form-msg {
+  font-size: 0.72rem;
+  display: none;
+}
+
+.form-msg.success { color: #2a7a4f; display: block; }
+.form-msg.error   { color: #c0392b; display: block; }
 
 footer {
   margin-top: 4rem;
@@ -177,64 +227,39 @@ footer {
       <nav>
         <a href="index.html">Today</a>
         <a href="archive.html">Archive</a>
-        <a href="about.html" class="active">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
       </nav>
     </div>
   </header>
 
-  <div class="page-title">— About Pacific Vector</div>
+  <div class="page-title">— Contact</div>
 
   <div class="lede">
-    Pacific Vector is a daily intelligence brief on Japan, China, the US-Japan alliance, and the wider
-    Indo-Pacific — built for readers who need to understand not just what happened, but why it matters.
+    Questions, feedback, corrections, or interest in working together — get in touch below.
   </div>
 
   <section class="section">
     <div class="section-header">
-      <span class="section-label">— what this is</span>
+      <span class="section-label">— send a message</span>
     </div>
-    <p>
-      Every morning, Pacific Vector reviews reporting from a curated set of news and analysis sources
-      covering Japanese politics, China-Japan relations, the US-Japan security alliance, and broader
-      regional developments across the Indo-Pacific.
-    </p>
-    <p>
-      Each brief distills the day's most consequential stories into a short, structured format: what
-      happened, sourced directly from reporting, followed by a "so what" — the analysis of why it
-      matters for policy, business, or the broader regional picture. A daily profile introduces a
-      figure relevant to that day's developments, with background and positions worth watching.
-    </p>
-  </section>
 
-  <section class="section">
-    <div class="section-header">
-      <span class="section-label">— methodology</span>
-    </div>
-    <p>
-      Sourcing comes from established news wires and regional affairs publications, including
-      outlets such as NHK, Reuters, East Asia Forum, and the Stimson Center, among others. Stories
-      are selected for their relevance to Japan's strategic position and the Indo-Pacific security
-      and economic environment.
-    </p>
-    <p>
-      Analysis is grounded in publicly available reporting and open-source material. Every story
-      links back to its original source, so readers can verify and go deeper. The brief is generated
-      and curated daily, with a consistent structure designed to be read in a few minutes.
-    </p>
-  </section>
-
-  <section class="section">
-    <div class="section-header">
-      <span class="section-label">— independence</span>
-    </div>
-    <div class="disclaimer">
-      <p>
-        Pacific Vector is an independent publication. The views and analysis presented are personal
-        and do not represent the position of any government, employer, or organization. Nothing in
-        Pacific Vector should be taken as official policy, diplomatic, or institutional commentary.
-      </p>
-    </div>
+    <form class="contact-form" id="contact-form">
+      <div class="form-row">
+        <label for="contact-name">Name</label>
+        <input type="text" id="contact-name" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-row">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" name="email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" required></textarea>
+      </div>
+      <button type="submit" id="contact-submit">Send →</button>
+      <div class="form-msg" id="contact-msg"></div>
+    </form>
   </section>
 
   <footer>
@@ -243,5 +268,47 @@ footer {
   </footer>
 </div>
 
+<script>
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const name    = document.getElementById('contact-name').value.trim();
+  const email   = document.getElementById('contact-email').value.trim();
+  const message = document.getElementById('contact-message').value.trim();
+  const msg     = document.getElementById('contact-msg');
+  const btn     = document.getElementById('contact-submit');
+
+  if (!name || !email || !message) {
+    msg.className = 'form-msg error';
+    msg.textContent = 'Please fill in all fields.';
+    return;
+  }
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      msg.className = 'form-msg success';
+      msg.textContent = '✓ Message sent. We\'ll get back to you soon.';
+      document.getElementById('contact-form').reset();
+      btn.textContent = 'Sent ✓';
+    } else {
+      throw new Error(data.error || 'Failed to send');
+    }
+  } catch (err) {
+    msg.className = 'form-msg error';
+    msg.textContent = 'Something went wrong. Please try again, or email us directly.';
+    btn.textContent = 'Send →';
+    btn.disabled = false;
+  }
+});
+</script>
 </body>
 </html>
