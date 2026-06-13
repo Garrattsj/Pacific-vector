@@ -20,7 +20,7 @@ Single source of truth for build progress across all phases. Check items off as 
 - [x] Build Contact page — professional contact form
 - [ ] Mobile layout review — ensure brief reads well on phone
 - [x] Confirm SSL certificate clean — no security warnings on any browser
-- [ ] Update footer links — About, Archive, Contact, Subscribe
+- [x] Update footer links — About, Archive, Contact, Subscribe
 - [x] Transition workflow to Claude Cowork
 
 ## Phase 3 — Backend Dashboard

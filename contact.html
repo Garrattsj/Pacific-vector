@@ -212,6 +212,15 @@ footer {
   gap: 0.5rem;
 }
 
+.footer-links a {
+  color: var(--mid);
+  margin-left: 1rem;
+  letter-spacing: 0.08em;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--navy); }
+
 @media (max-width: 600px) {
   .header-meta { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
@@ -264,7 +273,12 @@ footer {
 
   <footer>
     <span>PACIFIC VECTOR — Japan Geopolitical Intelligence</span>
-    <span>All analysis grounded in sourced reporting</span>
+    <span class="footer-links">
+      <a href="about.html">About</a>
+      <a href="archive.html">Archive</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#subscribe">Subscribe</a>
+    </span>
   </footer>
 </div>
 
