@@ -31,8 +31,8 @@ Full concept: see `BUSINESS_CONCEPT.md`.
 
 ## Phase 3 — Backend Dashboard & Growth Foundations
 ### Core delivery (fix first)
-- [ ] Wire up daily broadcast — send the brief to the full Resend audience, not just the personal inbox
-- [ ] Add unsubscribe link to every email (compliance + hygiene)
+- [x] Wire up daily broadcast — send the brief to the full Resend audience, not just the personal inbox
+- [x] Add unsubscribe link to every email (compliance + hygiene)
 - [x] Add 404 page
 
 ### Analytics & insight

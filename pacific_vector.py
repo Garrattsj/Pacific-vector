@@ -42,6 +42,10 @@ DELIVER_TO_EMAIL  = ["stuartgarratt@hotmail.com"]
 SEND_FROM_EMAIL   = "brief@pacific-vector.com"
 ALERT_EMAIL       = "stuartgarratt@hotmail.com"  # Where to send failure alerts
 
+# Resend audience to broadcast the daily brief to. Set RESEND_AUDIENCE_ID in
+# GitHub Secrets — if unset, broadcast step is skipped (personal email still sends).
+RESEND_AUDIENCE_ID = os.environ.get("RESEND_AUDIENCE_ID", "")
+
 # ── RSS FEED SOURCES ───────────────────────────────────────────────────────────
 # To add a source: add a new dict to this list
 # To remove a source: delete or comment out the line
@@ -374,7 +378,9 @@ def render_html(brief):
   .profile-row p {{ font-size: 0.8rem; line-height: 1.75; }}
   .watch-row {{ background: #f5f8fc; }}
   .watch-row .profile-label {{ color: var(--navy); }}
-  footer {{ margin-top: 3rem; padding: 1.5rem 0 3rem; border-top: 1px solid var(--rule); font-size: 0.65rem; color: var(--mid); letter-spacing: 0.08em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }}
+  footer {{ margin-top: 3rem; padding: 1.5rem 0 3rem; border-top: 1px solid var(--rule); font-size: 0.65rem; color: var(--mid); letter-spacing: 0.08em; display: flex; flex-direction: column; gap: 0.4rem; }}
+  .footer-top {{ display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }}
+  footer a {{ color: var(--navy); }}
 </style>
 </head>
 <body>
@@ -392,8 +398,15 @@ def render_html(brief):
     {profile_html}
   </main>
   <footer>
-    <span>PACIFIC VECTOR — Japan Geopolitical Intelligence</span>
-    <span>All analysis grounded in sourced reporting</span>
+    <div class="footer-top">
+      <span>PACIFIC VECTOR — Japan Geopolitical Intelligence</span>
+      <span>All analysis grounded in sourced reporting</span>
+    </div>
+    <div>
+      <a href="https://pacific-vector.com">pacific-vector.com</a>
+      &nbsp;·&nbsp;
+      <a href="{{{{{{RESEND_UNSUBSCRIBE_URL}}}}}}">Unsubscribe</a>
+    </div>
   </footer>
 </div>
 </body>
@@ -416,7 +429,7 @@ def save_output(brief, html):
 
 # ── STEP 5: SEND EMAIL VIA RESEND ────────────────────────────────────────────
 def send_email(brief, html):
-    """Send the brief as an HTML email via Resend."""
+    """Send the brief as an HTML email via Resend (personal copy)."""
     print("📧 Sending email via Resend...")
     resp = requests.post(
         "https://api.resend.com/emails",
@@ -433,6 +446,33 @@ def send_email(brief, html):
         print(f"  ✓ Brief emailed to {DELIVER_TO_EMAIL}")
     else:
         print(f"  ⚠️  Email failed: {resp.status_code} — {resp.text}")
+
+
+# ── STEP 5b: BROADCAST TO SUBSCRIBER AUDIENCE ────────────────────────────────
+def send_broadcast(brief, html):
+    """Send the brief to the full Resend subscriber audience."""
+    if not RESEND_AUDIENCE_ID:
+        print("  ⏭️  RESEND_AUDIENCE_ID not set — skipping audience broadcast.")
+        return
+
+    print("📣 Broadcasting brief to subscriber audience...")
+    resp = requests.post(
+        "https://api.resend.com/broadcasts",
+        headers={"Authorization": f"Bearer {RESEND_API_KEY}", "Content-Type": "application/json"},
+        json={
+            "audience_id": RESEND_AUDIENCE_ID,
+            "from":        SEND_FROM_EMAIL,
+            "subject":     f"Pacific Vector — {brief['date']}",
+            "html":        html,
+            "name":        f"Daily brief — {brief['date']}",
+            "send":        True,
+        },
+        timeout=15,
+    )
+    if resp.status_code in (200, 201):
+        print("  ✓ Broadcast sent to subscriber audience")
+    else:
+        print(f"  ⚠️  Broadcast failed: {resp.status_code} — {resp.text}")
 
 
 # ── STEP 6: SEND FAILURE ALERT ────────────────────────────────────────────────
@@ -485,6 +525,7 @@ if __name__ == "__main__":
         html      = render_html(brief)
         html_path = save_output(brief, html)
         send_email(brief, html)
+        send_broadcast(brief, html)
 
         print(f"\n✅ Pacific Vector brief ready.")
         print(f"   Open: {html_path.resolve()}\n")
