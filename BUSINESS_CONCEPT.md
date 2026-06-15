@@ -1,5 +1,7 @@
 # Pacific Vector: Ultimate Business Concept
 
+> This describes the long-term ambition. For how we get there without overcommitting to a fixed product too early, see `INTELLIGENCE_WORKSHOP.md`. For current build status, see `ROADMAP.md`.
+
 ## Overview
 
 Pacific Vector is an AI-powered geopolitical intelligence platform for organisations exposed to Asia-Pacific risk. It helps professionals turn fast-moving geopolitical, policy and security developments into clear, sourced, defensible decisions.

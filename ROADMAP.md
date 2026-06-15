@@ -6,7 +6,9 @@ Single source of truth for build progress across all phases. Check items off as 
 
 Pacific Vector is an AI-powered geopolitical intelligence platform for organisations exposed to Asia-Pacific risk — not, ultimately, a newsletter. The daily brief is the wedge: it builds audience, trust, and brand. The curated source corpus is the moat: it compounds in value and is hard to replicate. The Monitor / Ask / Brief platform is the product: decision-grade, sourced, auditable intelligence — briefings, memos, and risk packs that professionals can put in front of clients and stand behind.
 
-Full concept: see `BUSINESS_CONCEPT.md`.
+**How we get there:** Pacific Vector is, for now, an intelligence workshop, not a fixed product. We build the underlying machinery — source ingestion, translation/summarisation, classification, archive, source discipline, analytical format, feedback loop, and output flexibility — and let the daily brief be the proof that each piece works. The eventual commercial product (newsletter, monitoring service, briefing engine, dataset, or some combination) should emerge from this machinery rather than being fixed in advance.
+
+Full concept: see `BUSINESS_CONCEPT.md`. Build philosophy: see `INTELLIGENCE_WORKSHOP.md`.
 
 ## Phase 1 — Stability ✔ COMPLETE
 - [x] Replace NewsAPI with RSS feeds
@@ -47,13 +49,17 @@ Full concept: see `BUSINESS_CONCEPT.md`.
 - [x] SEO basics — meta descriptions, sitemap.xml, robots.txt per page
 - [ ] Social share buttons on each story/brief
 
-## Phase 4 — Content Quality
-- [ ] Fix and expand RSS sources further (NHK, Reuters, East Asia Forum, Stimson)
-- [ ] Source filtering text file (turn sources on/off without editing code)
-- [ ] Prompt refinement
-- [ ] Add keyword weighting
-- [ ] Add 'what to watch' section
-- [ ] Improve figure profiles
+## Phase 4 — Content Quality (intelligence workshop machinery)
+Per `INTELLIGENCE_WORKSHOP.md`, this phase is where the core machinery gets built — not just "make the brief better." Each item below maps to a workshop component.
+- [ ] Fix and expand RSS sources further (NHK, Reuters, East Asia Forum, Stimson) — *source ingestion*
+- [ ] Source filtering text file (turn sources on/off without editing code) — *source ingestion*
+- [ ] Prompt refinement — *analytical format*
+- [ ] Add keyword weighting — *classification*
+- [ ] Add 'what to watch' section — *analytical format*
+- [ ] Improve figure profiles — *analytical format*
+- [ ] Tag each item by country, institution, issue, sector, urgency, source type — *classification*
+- [ ] Persist every item + brief to a searchable archive — *archive*
+- [ ] Track source links/citations for every claim — *source discipline*
 
 ## Phase 5 — Growth Infrastructure
 - [ ] SEO basics (page titles, meta descriptions, sitemap)
@@ -73,6 +79,10 @@ Full concept: see `BUSINESS_CONCEPT.md`.
 - [ ] Pricing page
 - [ ] Professional domain email (hello@pacific-vector.com)
 - [ ] Stripe integration
+
+## Phases 7-10 — Exploratory / revisit later
+
+The phases below sketch one possible path (early users → Ask/RAG → Brief generation → commercial launch), written when the product shape felt more defined. Per `INTELLIGENCE_WORKSHOP.md`, we're no longer committing to this exact sequence — the right next product should emerge from the workshop machinery built in Phase 4, not be assumed in advance. Keeping these as a reference for ideas, not a fixed plan.
 
 ## Phase 7 — Early Users
 - [ ] Identify 10 network contacts for free access
