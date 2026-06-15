@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { name, email } = req.body || {};
+  const { name, email, org, role, industry, source } = req.body || {};
 
   if (!email || !email.includes('@')) {
     return res.status(400).json({ error: 'Valid email required' });
@@ -17,6 +17,13 @@ export default async function handler(req, res) {
 
   const RESEND_API_KEY  = process.env.RESEND_API_KEY;
   const AUDIENCE_ID     = process.env.RESEND_AUDIENCE_ID; // Set this in Vercel env vars
+
+  // Build custom properties from optional marketing fields (only include non-empty values)
+  const properties = {};
+  if (org)      properties.organisation = org;
+  if (role)     properties.role = role;
+  if (industry) properties.industry = industry;
+  if (source)   properties.source = source;
 
   try {
     // Add contact to Resend audience
@@ -31,6 +38,7 @@ export default async function handler(req, res) {
         first_name: name ? name.split(' ')[0] : '',
         last_name:  name ? name.split(' ').slice(1).join(' ') : '',
         unsubscribed: false,
+        ...(Object.keys(properties).length ? { properties } : {}),
       }),
     });
 

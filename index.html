@@ -202,6 +202,53 @@ nav a.active { color: var(--navy); border-bottom: 1px solid var(--navy); }
 .subscribe-msg.success { color: #7dd3a8; display: block; }
 .subscribe-msg.error   { color: #f87171; display: block; }
 
+.subscribe-toggle {
+  font-size: 0.68rem;
+  color: #a0b8d0;
+  letter-spacing: 0.05em;
+  text-decoration: underline;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.4rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font);
+  text-align: left;
+}
+
+.subscribe-toggle:hover { color: var(--white); }
+
+.subscribe-extra {
+  display: none;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 0.6rem;
+}
+
+.subscribe-extra.open { display: flex; }
+
+.subscribe-extra input,
+.subscribe-extra select {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 300;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  padding: 0.5rem 0.8rem;
+  outline: none;
+  width: 180px;
+  transition: border-color 0.15s;
+}
+
+.subscribe-extra select option { color: var(--ink); }
+
+.subscribe-extra input::placeholder { color: rgba(255,255,255,0.4); }
+.subscribe-extra input:focus,
+.subscribe-extra select:focus { border-color: rgba(255,255,255,0.6); }
+
 /* ═══════════════════════════════════════════════════════
    BRIEF LOADING STATE
 ═══════════════════════════════════════════════════════ */
@@ -422,6 +469,30 @@ footer {
         <input type="email" id="sub-email" placeholder="Your email" autocomplete="email">
         <button onclick="handleSubscribe()">Subscribe →</button>
       </div>
+      <button class="subscribe-toggle" onclick="toggleSubscribeExtra()" id="sub-toggle" type="button">+ Tell us a bit about yourself (optional, helps us tailor coverage)</button>
+      <div class="subscribe-extra" id="sub-extra">
+        <input type="text" id="sub-org" placeholder="Organisation" autocomplete="organization">
+        <input type="text" id="sub-role" placeholder="Role / title" autocomplete="organization-title">
+        <select id="sub-industry">
+          <option value="">Industry…</option>
+          <option value="Law / Legal">Law / Legal</option>
+          <option value="Finance / Investment">Finance / Investment</option>
+          <option value="Government / Public Sector">Government / Public Sector</option>
+          <option value="Defence / Security">Defence / Security</option>
+          <option value="Corporate / Business">Corporate / Business</option>
+          <option value="Media / Journalism">Media / Journalism</option>
+          <option value="Academia / Research">Academia / Research</option>
+          <option value="Other">Other</option>
+        </select>
+        <select id="sub-source">
+          <option value="">How did you hear about us?</option>
+          <option value="Search engine">Search engine</option>
+          <option value="Social media">Social media</option>
+          <option value="Referral">Referral from a colleague/friend</option>
+          <option value="Newsletter directory">Newsletter directory</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
       <div class="subscribe-msg" id="sub-msg"></div>
     </div>
   </div>
@@ -540,10 +611,23 @@ function renderBrief(brief) {
 }
 
 // ── SUBSCRIBE ─────────────────────────────────────────
+function toggleSubscribeExtra() {
+  const extra = document.getElementById('sub-extra');
+  const toggle = document.getElementById('sub-toggle');
+  const isOpen = extra.classList.toggle('open');
+  toggle.textContent = isOpen
+    ? '− Hide details'
+    : '+ Tell us a bit about yourself (optional, helps us tailor coverage)';
+}
+
 async function handleSubscribe() {
-  const name  = document.getElementById('sub-name').value.trim();
-  const email = document.getElementById('sub-email').value.trim();
-  const msg   = document.getElementById('sub-msg');
+  const name     = document.getElementById('sub-name').value.trim();
+  const email    = document.getElementById('sub-email').value.trim();
+  const org      = document.getElementById('sub-org').value.trim();
+  const role     = document.getElementById('sub-role').value.trim();
+  const industry = document.getElementById('sub-industry').value;
+  const source   = document.getElementById('sub-source').value;
+  const msg      = document.getElementById('sub-msg');
 
   if (!name || !email) {
     msg.className = 'subscribe-msg error';
@@ -559,7 +643,7 @@ async function handleSubscribe() {
     const res = await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({ name, email, org, role, industry, source })
     });
     const data = await res.json();
     if (res.ok) {
@@ -567,6 +651,10 @@ async function handleSubscribe() {
       msg.textContent = '✓ You\'re subscribed. Pacific Vector arrives tomorrow morning.';
       document.getElementById('sub-name').value = '';
       document.getElementById('sub-email').value = '';
+      document.getElementById('sub-org').value = '';
+      document.getElementById('sub-role').value = '';
+      document.getElementById('sub-industry').value = '';
+      document.getElementById('sub-source').value = '';
       btn.textContent = 'Subscribed ✓';
     } else {
       throw new Error(data.error || 'Subscription failed');

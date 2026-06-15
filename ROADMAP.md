@@ -37,6 +37,7 @@ Full concept: see `BUSINESS_CONCEPT.md`.
 
 ### Analytics & insight
 - [x] Enable Vercel Analytics
+- [x] Professionalise subscribe form — collect organisation, role, industry, and signup source for marketing segmentation
 - [ ] Connect Resend dashboard (opens/clicks visibility)
 - [ ] UTM tracking
 - [ ] Subscriber export (CSV)
