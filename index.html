@@ -187,20 +187,25 @@ nav a.active { color: var(--navy); border-bottom: 1px solid var(--navy); }
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: opacity 0.15s, transform 0.15s;
 }
 
-.subscribe-form button:hover { opacity: 0.85; }
+.subscribe-form button:hover:not(:disabled) { opacity: 0.85; transform: translateY(-1px); }
+.subscribe-form button:active:not(:disabled) { transform: translateY(0); }
+.subscribe-form button:disabled { cursor: default; opacity: 0.7; }
 
 .subscribe-msg {
   font-size: 0.72rem;
   margin-top: 0.5rem;
   width: 100%;
   display: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.subscribe-msg.success { color: #7dd3a8; display: block; }
-.subscribe-msg.error   { color: #f87171; display: block; }
+.subscribe-msg.success { color: #7dd3a8; display: block; opacity: 1; transform: translateY(0); }
+.subscribe-msg.error   { color: #f87171; display: block; opacity: 1; transform: translateY(0); }
 
 .subscribe-toggle {
   font-size: 0.68rem;
@@ -648,7 +653,7 @@ async function handleSubscribe() {
     const data = await res.json();
     if (res.ok) {
       msg.className = 'subscribe-msg success';
-      msg.textContent = '✓ You\'re subscribed. Pacific Vector arrives tomorrow morning.';
+      msg.textContent = '✓ You\'re in — check your inbox for a welcome email. First brief arrives tomorrow morning.';
       document.getElementById('sub-name').value = '';
       document.getElementById('sub-email').value = '';
       document.getElementById('sub-org').value = '';

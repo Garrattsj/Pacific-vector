@@ -64,9 +64,9 @@ export default async function handler(req, res) {
         to:      [email],
         subject: 'Welcome to Pacific Vector',
         html:    `
-          <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto; padding: 2rem; color: #0d0d0d;">
-            <div style="font-size: 1rem; font-weight: 500; letter-spacing: 0.2em; margin-bottom: 1.5rem;">
-              PACIFIC<span style="color: #1a3a5c;">VECTOR</span>
+          <div style="font-family: 'IBM Plex Mono', monospace; max-width: 600px; margin: 0 auto; padding: 2rem; color: #0d0d0d; background: #f8f8f6;">
+            <div style="font-size: 1rem; font-weight: 500; letter-spacing: 0.2em; margin-bottom: 1.5rem; color: #1a3a5c;">
+              PACIFIC<span style="color: #2a5a8c;">VECTOR</span>
             </div>
             <p style="font-size: 0.85rem; line-height: 1.8; margin-bottom: 1rem;">
               ${name ? `${name.split(' ')[0]},` : 'Hello,'}
@@ -80,9 +80,10 @@ export default async function handler(req, res) {
             <div style="border-left: 2px solid #1a3a5c; padding-left: 1rem; font-size: 0.78rem; color: #888; line-height: 1.8;">
               Coverage: Japan–China · Japan–US & Security · Indo-Pacific/QUAD · Domestic Politics · Daily Figure Profile
             </div>
-            <p style="font-size: 0.68rem; color: #888; margin-top: 2rem;">
-              pacific-vector.com
-            </p>
+            <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e5e5e5; font-size: 0.65rem; color: #888; letter-spacing: 0.08em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+              <span>PACIFIC VECTOR — Japan Geopolitical Intelligence</span>
+              <a href="https://pacific-vector.com" style="color: #1a3a5c;">pacific-vector.com</a>
+            </div>
           </div>
         `,
       }),
