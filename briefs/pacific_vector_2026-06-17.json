@@ -1,0 +1,76 @@
+{
+  "date": "Wednesday, 17 June 2026",
+  "opening_line": "Prime Minister Takaichi is pivoting Japan toward economic security leadership as the Bank of Japan's sharp rate hike signals the end of three decades of monetary abnormality.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "TAKAICHI PROPOSES G7 CRITICAL MINERALS STOCKPILE TO COUNTER CHINA'S SUPPLY CHAIN DOMINANCE",
+          "what_happened": "Prime Minister Sanae Takaichi has pitched a plan for coordinating critical mineral stockpiles among G7 nations and like-minded partners. The proposal directly targets China's tight grip on key supply chains.",
+          "so_what": "Japan is positioning itself as architect of Western economic security infrastructure, not just participant. This marks Takaichi's bid to institutionalize resilience mechanisms that outlast her tenure and bind allies into collective dependency reduction. If adopted, it shifts G7 from coordination forum to operational alliance on resource security.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/16/japan/politics/takaichi-g7-critical-minerals/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "JAPAN MOVES TO CREATE FMS-STYLE DEFENSE EXPORT SYSTEM AS ARMS SALES BECOME STRATEGIC INSTRUMENT",
+          "what_happened": "The government is considering establishing a new organization to manage a Japanese-style Foreign Military Sales system and promote defense exports. This would formalize defense equipment transfers as a strategic tool.",
+          "so_what": "Japan is abandoning its decades-long inhibition about weaponizing its defense industry for geopolitical influence. An FMS-equivalent gives Tokyo standardized channels to arm partners in Southeast Asia and beyond, competing directly with U.S., Chinese, and European systems. This infrastructure ensures Japan's defense pivot becomes irreversible regardless of future political shifts.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/06/japan-eyes-a-homegrown-fms-system-as-defense-exports-become-a-strategic-tool/"
+        },
+        {
+          "headline": "TRUMP-ALLIED SPLIT ON HORMUZ REOPENING TIMELINE EXPOSES COORDINATION GAPS",
+          "what_happened": "U.S. President Donald Trump said the Strait of Hormuz will be \"completely open\" by Friday. At the G7 summit, European allies clearly do not share his optimism.",
+          "so_what": "The disconnect underscores fragile allied unity on Middle East crisis management, with direct implications for Japan's energy security. Japan remains heavily dependent on Gulf oil transiting Hormuz and needs coordinated Western pressure on Iran, not unilateral American declarations. The gap between Trump's timeline and allied skepticism complicates Tokyo's planning for potential supply disruptions.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/16/world/politics/trump-iran-g7-hormuz/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "CHINA BACKS MYANMAR'S MIN AUNG HLAING IN BEIJING VISIT AS JUNTA SOLIDIFIES CIVILIAN FACADE",
+          "what_happened": "Myanmar's president Min Aung Hlaing is in China for a five-day state visit, his first trip to the country since the former junta chief formalized his grip on power. Xi Jinping publicly backed him.",
+          "so_what": "China is locking in Myanmar as a client state despite Western isolation, securing its western flank and land corridors to the Indian Ocean. This complicates Japan's ASEAN engagement and Quad coordination, as Beijing gains strategic depth through Myanmar while Japan and partners lack leverage. The visit signals China's willingness to absorb reputational costs for geopolitical control of critical geography.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/16/asia-pacific/politics/china-xi-myanmar-president-beijing/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "BOJ RAISES RATES TO 1%, HIGHEST SINCE 1995, ENDING ERA OF MONETARY ABNORMALITY",
+          "what_happened": "The Bank of Japan raised rates to 1%, the highest level in over three decades. Inflation and the weak yen forced its hand, making further delay impossible.",
+          "so_what": "Japan is exiting its generation-long monetary experiment under market duress, not policy choice. The move signals loss of control over the yen's trajectory and admission that inflation is no longer transitory. Higher borrowing costs will stress corporate Japan, the government's debt servicing, and household consumption—undermining Takaichi's ability to fund defense expansion and industrial policy without fiscal crisis.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/16/markets/boj-meeting-june-2026/"
+        },
+        {
+          "headline": "NATIONAL FLAG VANDALISM BILL SET FOR PASSAGE WITH OPPOSITION SUPPORT",
+          "what_happened": "A bill criminalizing vandalism of the national flag is set to pass the upper house. The opposition Democratic Party for the People is backing it, ensuring passage despite the ruling bloc's minority status in the chamber.",
+          "so_what": "The legislation reveals Takaichi's ability to secure nationalist policy wins through tactical opposition cooperation, not majority dominance. It also demonstrates her willingness to spend political capital on symbolic issues that reinforce conservative identity politics. This matters because it shows which opposition factions are willing to deal with her government and on what terms.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/16/japan/politics/national-flag-vandalism-likely-enactment/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Sanae Takaichi",
+    "title": "Prime Minister of Japan",
+    "who_they_are": "Japan's first female prime minister and a conservative nationalist who has rapidly moved Japan toward economic security assertiveness and defense expansion. She is using the G7 to institutionalize collective resilience against China while navigating domestic economic headwinds from the BOJ's forced rate normalization. Her agenda combines hawkish security policy with symbolic nationalist legislation.",
+    "background": "Career LDP politician and protégé of former Prime Minister Shinzo Abe, closely aligned with the party's right wing. She has held multiple cabinet positions including Internal Affairs Minister and has long advocated for constitutional revision and stronger defense posture.",
+    "known_positions": "Hardline on China, viewing Beijing as existential threat requiring economic decoupling and military deterrence. Strong supporter of US alliance but advocates for Japan's autonomous defense capabilities. Pushes for constitutional revision to enable full military normalization and has visited Yasukuni Shrine, signaling unapologetic nationalism.",
+    "watch": "Whether she can sustain defense spending increases and industrial policy subsidies as BOJ rate hikes squeeze fiscal space and economic growth slows."
+  }
+}
