@@ -41,9 +41,9 @@ Full concept: see `BUSINESS_CONCEPT.md`. Build philosophy: see `INTELLIGENCE_WOR
 - [x] Enable Vercel Analytics
 - [x] Professionalise subscribe form — collect organisation, role, industry, and signup source for marketing segmentation
 - [x] Connect Resend dashboard (opens/clicks visibility)
-- [ ] UTM tracking
+- [x] UTM tracking
 - [x] Subscriber export (CSV)
-- [ ] Build weekly stats email
+- [x] Build weekly stats email
 
 ### Growth foundations
 - [x] SEO basics — meta descriptions, sitemap.xml, robots.txt per page

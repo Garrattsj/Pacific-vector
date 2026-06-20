@@ -615,6 +615,19 @@ function renderBrief(brief) {
   `;
 }
 
+// ── UTM CAPTURE ───────────────────────────────────────
+// Reads utm_source/utm_medium/utm_campaign from the URL (e.g. shared on
+// LinkedIn as ?utm_source=linkedin&utm_medium=social&utm_campaign=launch)
+// and builds a single attribution string we send with any signup on this visit.
+function getUtmAttribution() {
+  const params = new URLSearchParams(window.location.search);
+  const utmSource   = params.get('utm_source');
+  const utmMedium   = params.get('utm_medium');
+  const utmCampaign = params.get('utm_campaign');
+  if (!utmSource) return null;
+  return [utmSource, utmMedium, utmCampaign].filter(Boolean).join(' / ');
+}
+
 // ── SUBSCRIBE ─────────────────────────────────────────
 function toggleSubscribeExtra() {
   const extra = document.getElementById('sub-extra');
@@ -631,7 +644,10 @@ async function handleSubscribe() {
   const org      = document.getElementById('sub-org').value.trim();
   const role     = document.getElementById('sub-role').value.trim();
   const industry = document.getElementById('sub-industry').value;
-  const source   = document.getElementById('sub-source').value;
+  // Real UTM attribution (from a tracked link) takes priority over the
+  // self-reported dropdown, since it's measured rather than guessed.
+  const utm      = getUtmAttribution();
+  const source   = utm || document.getElementById('sub-source').value;
   const msg      = document.getElementById('sub-msg');
 
   if (!name || !email) {
