@@ -1,0 +1,76 @@
+{
+  "date": "Sunday, 21 June 2026",
+  "opening_line": "Beijing's mineral embargo on Tokyo enters its second month with zero tolerance, while Japan's strategic calculus shifts toward domestic fortification and selective international engagement.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "CHINA MAINTAINS ZERO EXPORTS OF CRITICAL MINERALS TO JAPAN FOR SECOND MONTH",
+          "what_happened": "Chinese customs data shows exports of key tungsten types, rare-earth dysprosium, and terbium to Japan remained at zero in May. This continues a pattern of strategic mineral restriction targeting Japan's industrial base.",
+          "so_what": "Beijing is demonstrating its willingness to sustain economic coercion against Tokyo indefinitely. Japan's manufacturers face supply chain paralysis in sectors dependent on these inputs—particularly defense electronics and precision manufacturing. Tokyo's diversification efforts are being stress-tested in real time.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/20/china-japan-mineral-exports-low/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "JAPAN PRIORITIZES AI CYBER DEFENSE IN REVISED BASIC PLAN",
+          "what_happened": "The draft revision of Japan's AI Basic Plan emphasizes growing risks of cyberattacks exploiting artificial intelligence. The plan signals enhanced global cooperation on AI security threats.",
+          "so_what": "Tokyo is acknowledging that AI-enabled cyber warfare represents a critical vulnerability in its defense posture. This positions Japan to deepen technical security cooperation with Washington and Five Eyes partners while potentially establishing standards that exclude Chinese AI systems from sensitive infrastructure.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/20/japan-ai-global-cooperation/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "TAIWAN EXCLUDED FROM MARITIME ECOLOGY PLATFORM IN CHINA PRESSURE CAMPAIGN",
+          "what_happened": "Beijing successfully forced Taiwan's exclusion from a Track 2 platform designed to address maritime ecological issues. The exclusion represents an escalation of China's political warfare beyond traditional diplomatic forums.",
+          "so_what": "China is expanding its isolation campaign into technical and environmental domains where Taiwan previously participated. This creates a precedent that threatens Japanese coordination with Taipei on shared maritime concerns in the East China Sea and Pacific fisheries management. Track 2 channels—once somewhat insulated from Beijing's pressure—are no longer safe spaces.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/06/beijings-bullying-of-taiwan-threatens-ocean-ecology/"
+        },
+        {
+          "headline": "ASEAN-RUSSIA SUMMIT SIGNALS MOSCOW'S RETURN TO SOUTHEAST ASIA",
+          "what_happened": "ASEAN and Russia agreed to deepen cooperation during a special summit in Kazan. The global energy crisis has accelerated rapprochement between Moscow and the eleven-nation Southeast Asian bloc.",
+          "so_what": "Russia is leveraging energy dependence to rebuild influence in Southeast Asia at a moment when U.S. attention remains divided. For Tokyo, this complicates efforts to maintain ASEAN alignment on Ukraine and raises the prospect of Moscow providing diplomatic cover for Beijing's South China Sea activities. Japan's energy diplomacy in the region now competes with Russian supply offers.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/06/asean-and-russia-agree-to-deepen-cooperation-during-special-summit-in-kazan/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "JAPAN QUINTUPLES VISA FEES IN FIRST REVISION SINCE 1978",
+          "what_happened": "Starting July 1, Japan will increase visa fees from ¥3,000 to ¥15,000 for single-entry and ¥6,000 to ¥30,000 for multiple-entry visas. This is the first revision in 48 years.",
+          "so_what": "The dramatic increase signals a policy shift away from the tourism-maximization strategy that defined the past decade. Combined with new local authority to ban private lodging due to overtourism complaints, Tokyo is recalibrating toward quality over quantity in foreign visitors—potentially cooling Chinese tourism flows while protecting residential quality of life ahead of election cycles.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/20/japan-raise-visa-fees/"
+        },
+        {
+          "headline": "LOCAL GOVERNMENTS GAIN POWER TO BAN PRIVATE LODGING",
+          "what_happened": "Japan will allow local governments to ban private lodging (minpaku) in response to complaints about noise, trash violations, and cigarette littering. The measure addresses rising public frustration with unregulated tourism accommodation.",
+          "so_what": "This decentralizes tourism policy and empowers prefectural governors and mayors to impose restrictions without central government approval. Expect politically ambitious local leaders to leverage this authority to demonstrate responsiveness to constituents frustrated by overtourism, potentially fragmenting Japan's accommodation market along regional lines.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/19/japan/minpaku-ban/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Norikazu Suzuki",
+    "title": "Minister of Agriculture, Forestry and Fisheries",
+    "who_they_are": "Suzuki is leading Japan's agricultural export push at a moment when food security and economic sovereignty have become strategic imperatives. His promotion of Japanese rice in France during a food fair reflects Tokyo's effort to diversify export markets amid Chinese trade restrictions. He represents a generation of agricultural policymakers pivoting from domestic protection to export offense.",
+    "background": "Career agricultural policy specialist who rose through MAFF bureaucracy before entering politics. Part of the LDP's agricultural policy tribe with deep ties to rural constituencies.",
+    "known_positions": "Supports agricultural export expansion to reduce dependence on Chinese market. Advocates maintaining rice subsidies while pursuing premium product positioning abroad. Cautious on further market liberalization but pragmatic on bilateral trade agreements that protect core commodities.",
+    "watch": "Whether he can deliver measurable export growth to European markets before rural constituencies demand a return to protectionist policies—particularly if Chinese mineral restrictions trigger broader economic anxiety in Japan's agricultural regions dependent on fertilizer imports."
+  }
+}
