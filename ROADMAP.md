@@ -51,15 +51,29 @@ Full concept: see `BUSINESS_CONCEPT.md`. Build philosophy: see `INTELLIGENCE_WOR
 
 ## Phase 4 — Content Quality (intelligence workshop machinery)
 Per `INTELLIGENCE_WORKSHOP.md`, this phase is where the core machinery gets built — not just "make the brief better." Each item below maps to a workshop component.
+
+### Configurable source registry (Supabase) — *source ingestion, classification, archive*
+Replaces the old hard-coded RSS list with a real database, superseding the "source filtering text file" idea below.
+- [x] Create Supabase project + `sources`, `topics`, `source_topics`, `articles` schema
+- [x] Seed topic taxonomy (12 topics: Japan-China, Japan-US, domestic politics, defence, economic security, export controls, supply chains, semiconductors, Indo-Pacific/QUAD, Taiwan, China, South Korea)
+- [x] Migrate the 7 existing RSS sources into the registry, classified by type/region/priority/reliability/topics
+- [x] Build `/admin/sources` — password-gated UI to add, edit, activate/pause sources and assign topics without touching code
+- [x] End-to-end test: add a new source (BBC News — Asia) through the admin UI and confirm it persists correctly
+- [ ] Integrate the daily pipeline to read active sources from Supabase instead of the hard-coded list (fallback retained during migration)
+- [ ] Write each ingested article into `articles` with source metadata snapshotted at ingestion time
+- [ ] Build basic source-health view (last fetch, items in last 7 days, errors, dead/degraded feeds)
+- [ ] Remove the hard-coded source list once the registry-driven pipeline is stable
+
+### Other content quality items
 - [ ] Fix and expand RSS sources further (NHK, Reuters, East Asia Forum, Stimson) — *source ingestion*
-- [ ] Source filtering text file (turn sources on/off without editing code) — *source ingestion*
 - [ ] Prompt refinement — *analytical format*
 - [ ] Add keyword weighting — *classification*
 - [ ] Add 'what to watch' section — *analytical format*
 - [ ] Improve figure profiles — *analytical format*
-- [ ] Tag each item by country, institution, issue, sector, urgency, source type — *classification*
-- [ ] Persist every item + brief to a searchable archive — *archive*
 - [ ] Track source links/citations for every claim — *source discipline*
+
+### Noted for later (not actioned)
+- Language as intelligence metadata — see `INTELLIGENCE_WORKSHOP.md`. Parked until a non-English source is actually added.
 
 ## Phase 5 — Growth Infrastructure
 - [ ] SEO basics (page titles, meta descriptions, sitemap)
