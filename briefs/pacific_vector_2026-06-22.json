@@ -1,0 +1,69 @@
+{
+  "date": "Monday, 22 June 2026",
+  "opening_line": "Washington is repositioning offensive strike capabilities in Japan as China's military tempo accelerates, while Tokyo's own defense modernization confronts a demographic wall.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "U.S. DEPLOYS TYPHON MIDRANGE MISSILE SYSTEM TO JAPAN FOR JOINT EXERCISES",
+          "what_happened": "The United States will deploy its land-based Typhon missile system to Japan for joint drills with the Self-Defense Forces. The system represents a significant expansion of allied strike capability in the region.",
+          "so_what": "This marks the first deployment of U.S. ground-based intermediate-range missiles in Japan, effectively restoring capabilities Washington abandoned after the Cold War INF Treaty. Beijing will view this as direct encirclement, and Tokyo's acceptance signals it is willing to absorb Chinese political pressure to deepen deterrence architecture.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/21/japan/us-typhon-missiles-japan-sdf/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "SDF AUTOMATION PUSH CONFRONTS MANPOWER CRISIS AS RECRUITMENT POOL SHRINKS",
+          "what_happened": "Japan is attempting to build a 21st-century military but faces a critical shortage of personnel to operate it. The Self-Defense Forces are increasingly turning to automation and unmanned systems to offset demographic decline.",
+          "so_what": "Demographics are becoming a hard constraint on Japan's defense posture just as threat perception peaks. If automation cannot close the gap quickly enough, Tokyo will face a choice between radical recruitment reform (including women and immigrants) or accepting capability shortfalls that undermine alliance credibility with Washington.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/21/japan/japan-sdf-automation-drones-military/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "TAIWAN STAGES FIVE-DAY COMBAT DRILLS BASED ON CHINA CONVERTING EXERCISE INTO INVASION",
+          "what_happened": "Taiwan will conduct five days of combat readiness exercises simulating a scenario where China suddenly converts regular military drills around the island into an actual attack. The drills reflect growing concern about Beijing's ability to mask invasion preparations.",
+          "so_what": "Taipei is operationalizing lessons from Ukraine: that warning time may collapse to zero if an adversary can credibly disguise mobilization as routine activity. Japan shares this vulnerability and will watch closely whether Taiwan's forces can sustain readiness without exhausting personnel or burning through budgets.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/21/asia-pacific/taiwan-combat-readiness-drills/"
+        },
+        {
+          "headline": "BEIJING EXCLUDES TAIWAN FROM TRACK 2 MARITIME ECOLOGY PLATFORM",
+          "what_happened": "China successfully secured Taiwan's exclusion from a Track 2 platform designed to address maritime ecology issues. The move represents an escalation of China's political warfare beyond traditional diplomatic forums.",
+          "so_what": "Beijing is systematically closing off even non-governmental and scientific spaces to Taiwan, demonstrating that no domain is apolitical when it comes to cross-strait competition. This creates precedent for excluding Taiwan from climate, health, and other technical cooperation that Japan and other partners rely on for regional governance.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/06/beijings-bullying-of-taiwan-threatens-ocean-ecology/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "LDP SECRETARY-GENERAL SUZUKI RESISTS COALITION PARTNER'S CALL FOR DIET EXTENSION",
+          "what_happened": "Liberal Democratic Party Secretary-General Suzuki expressed opposition to extending the current Diet session after Japan Innovation Party Secretary-General Hiroshi Nakatsuka called for an extension during talks. The disagreement highlights coalition management tensions.",
+          "so_what": "The LDP's coalition arithmetic is getting more complicated as junior partners assert themselves on procedural matters. If Suzuki cannot manage this minor issue with the JIP, it suggests the government lacks bandwidth for larger legislative battles ahead, including defense budget increases or constitutional revision.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/21/japan/politics/suzuki-negative-on-diet-extension/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Suzuki (LDP Secretary-General)",
+    "title": "Secretary-General, Liberal Democratic Party",
+    "who_they_are": "The LDP's chief political strategist and coalition manager, responsible for navigating legislative priorities and maintaining working relationships with junior coalition partners. His current resistance to Diet extension reveals tensions in coalition management at a time when the government faces significant security policy imperatives.",
+    "background": "As Secretary-General, Suzuki holds one of the LDP's most powerful positions, controlling party discipline, candidate endorsements, and day-to-day political operations. The role typically serves as a stepping stone to higher office for ambitious politicians.",
+    "known_positions": "Suzuki's positions on China, US alliance, and defense are not detailed in available coverage, though his role requires balancing hardline security priorities with coalition partner concerns and public opinion management.",
+    "watch": "Whether Suzuki can secure JIP cooperation on substantive security legislation after publicly rejecting their procedural demands—coalition partners tend to remember slights when larger asks arrive."
+  }
+}
