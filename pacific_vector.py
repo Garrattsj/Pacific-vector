@@ -46,7 +46,13 @@ ALERT_EMAIL       = "stuartgarratt@hotmail.com"  # Where to send failure alerts
 # GitHub Secrets — if unset, broadcast step is skipped (personal email still sends).
 RESEND_AUDIENCE_ID = os.environ.get("RESEND_AUDIENCE_ID", "")
 
-# ── RSS FEED SOURCES ───────────────────────────────────────────────────────────
+# Supabase-backed source registry (see /admin/sources on the website). If
+# unset or unreachable, the pipeline falls back to the hard-coded RSS_FEEDS
+# list below, so a daily run never fails just because the registry is down.
+SUPABASE_URL              = os.environ.get("SUPABASE_URL", "")
+SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+
+# ── RSS FEED SOURCES (fallback only — managed live via /admin/sources) ────────
 # To add a source: add a new dict to this list
 # To remove a source: delete or comment out the line
 RSS_FEEDS = [
@@ -83,15 +89,94 @@ RELEVANCE_KEYWORDS = [
 ]
 
 
+# ── STEP 0: LOAD ACTIVE SOURCES FROM THE REGISTRY ────────────────────────────
+def fetch_active_sources():
+    """Pull the active source list from the Supabase registry (managed live
+    via /admin/sources). Falls back to the hard-coded RSS_FEEDS list if
+    Supabase isn't configured, unreachable, or returns zero active sources —
+    so a daily run never fails just because the registry is down."""
+    if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+        print("  ⏭️  Supabase not configured — using hard-coded RSS_FEEDS list.")
+        return [{"id": None, "name": f["name"], "url": f["url"]} for f in RSS_FEEDS]
+
+    try:
+        resp = requests.get(
+            f"{SUPABASE_URL}/rest/v1/sources",
+            headers={
+                "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+            },
+            params={
+                "select": "id,name,feed_url,inclusion_keywords,exclusion_keywords",
+                "is_active": "eq.true",
+            },
+            timeout=15,
+        )
+        resp.raise_for_status()
+        sources = resp.json()
+        if not sources:
+            raise Exception("registry returned zero active sources")
+
+        print(f"  ✓ Loaded {len(sources)} active sources from registry")
+        return [
+            {
+                "id":  s["id"],
+                "name": s["name"],
+                "url": s["feed_url"],
+                "inclusion_keywords": s.get("inclusion_keywords") or [],
+                "exclusion_keywords": s.get("exclusion_keywords") or [],
+            }
+            for s in sources
+        ]
+    except Exception as e:
+        print(f"  ⚠️  Could not load source registry ({e}) — falling back to hard-coded RSS_FEEDS list.")
+        return [{"id": None, "name": f["name"], "url": f["url"]} for f in RSS_FEEDS]
+
+
+def record_fetch_result(source_id, success, error=None):
+    """Write fetch status back to the registry so /admin/sources' health
+    columns (last fetch, last error) reflect reality. No-op for sources that
+    came from the hard-coded fallback list (id is None) or if Supabase isn't
+    configured."""
+    if not source_id or not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+        return
+
+    now_iso = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    body = {"last_fetched_at": now_iso}
+    if success:
+        body["last_successful_fetch_at"] = now_iso
+        body["last_error"] = None
+    else:
+        body["last_error"] = (error or "Unknown error")[:500]
+
+    try:
+        requests.patch(
+            f"{SUPABASE_URL}/rest/v1/sources",
+            headers={
+                "apikey": SUPABASE_SERVICE_ROLE_KEY,
+                "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+                "Content-Type": "application/json",
+                "Prefer": "return=minimal",
+            },
+            params={"id": f"eq.{source_id}"},
+            json=body,
+            timeout=10,
+        )
+    except Exception as e:
+        print(f"  ⚠️  Could not update fetch status for source {source_id}: {e}")
+
+
 # ── STEP 1: FETCH NEWS VIA RSS ────────────────────────────────────────────────
 def fetch_articles():
-    """Pull articles from RSS feeds and filter for Japan relevance."""
+    """Pull articles from active registry sources (or the hard-coded
+    fallback list) and filter for Japan/Indo-Pacific relevance."""
     print("📡 Fetching news from RSS feeds...")
+    sources = fetch_active_sources()
     articles = []
     seen_titles = set()
     cutoff = datetime.datetime.now() - datetime.timedelta(days=2)
 
-    for feed in RSS_FEEDS:
+    for feed in sources:
         try:
             headers = {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -107,6 +192,14 @@ def fetch_articles():
             # Handle both RSS and Atom formats
             items = root.findall(".//item") or root.findall(".//{http://www.w3.org/2005/Atom}entry")
 
+            # Per-source inclusion/exclusion keywords (set in /admin/sources)
+            # take priority over the global RELEVANCE_KEYWORDS list — this
+            # lets a broad feed (e.g. BBC Asia) be scoped down without
+            # affecting any other source.
+            inclusion_kw = [k.lower() for k in feed.get("inclusion_keywords", [])]
+            exclusion_kw = [k.lower() for k in feed.get("exclusion_keywords", [])]
+            relevant_kw = inclusion_kw or RELEVANCE_KEYWORDS
+
             feed_count = 0
             for item in items:
                 # Extract fields (handles both RSS and Atom)
@@ -120,13 +213,16 @@ def fetch_articles():
 
                 # Check relevance
                 combined = (title + " " + (desc or "")).lower()
-                if not any(kw in combined for kw in RELEVANCE_KEYWORDS):
+                if not any(kw in combined for kw in relevant_kw):
+                    continue
+                if exclusion_kw and any(kw in combined for kw in exclusion_kw):
                     continue
 
                 seen_titles.add(title)
                 articles.append({
                     "title":       title,
                     "source":      feed["name"],
+                    "source_id":   feed.get("id"),
                     "url":         url or "",
                     "description": desc or "",
                     "content":     desc or "",
@@ -135,9 +231,11 @@ def fetch_articles():
                 feed_count += 1
 
             print(f"  ✓ {feed['name']}: {feed_count} relevant articles")
+            record_fetch_result(feed.get("id"), success=True)
 
         except Exception as e:
             print(f"  ⚠️  {feed['name']} failed: {e}")
+            record_fetch_result(feed.get("id"), success=False, error=str(e))
 
     print(f"\n  📰 Total: {len(articles)} articles collected")
     return articles
