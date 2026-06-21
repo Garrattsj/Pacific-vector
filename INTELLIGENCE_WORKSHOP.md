@@ -27,6 +27,14 @@ Over time, repeated use of the system should reveal the best commercial opportun
 
 The discipline is to keep building the machinery while making each daily brief genuinely useful. Every feature should improve either the quality of the brief, the structure of the archive, or the ability to generate future intelligence products.
 
+## Future Capability: Language as Intelligence Metadata
+
+Component 2 (translation and summarisation) is currently trivial, since all sources are English-language. As Pacific Vector adds Japanese, Chinese, Taiwanese and Korean primary sources, language stops being a display preference and becomes part of the signal itself — official messaging often differs between domestic-language and English-language audiences, and that gap can be analytically valuable.
+
+The future design principle: never overwrite the original-language record; store any translation as a separate layer with a clear status (e.g. machine-translated, human-reviewed, pending); preserve provenance back to the original source, URL and publication date; and where an institution publishes parallel versions (e.g. a Japanese and an English release of the same statement), support linking them for comparison.
+
+Implementation should be additive to the existing `articles` table (original/translated text and status columns) rather than a parallel schema, and should wait until there's a real non-English source to design against rather than being speculatively built now. Not actioned — parked for when it becomes relevant. Eventually, this is what lets Pacific Vector synthesise across languages rather than just aggregate English-language coverage.
+
 ## In Short
 
 Pacific Vector is an intelligence workshop. The daily brief is the first output. The system behind it is the asset.
