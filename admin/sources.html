@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacific Vector — Source Registry</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a3a5c;
+  --navy-mid: #2a5a8c;
+  --navy-lt: #e8f0f8;
+  --ink: #0d0d0d;
+  --mid: #888888;
+  --rule: #e5e5e5;
+  --bg: #f8f8f6;
+  --font: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.logo { font-size: 1rem; font-weight: 500; letter-spacing: 0.2em; color: var(--navy); }
+.logo span { color: var(--navy-mid); }
+.page-label { font-size: 0.68rem; color: var(--mid); letter-spacing: 0.08em; margin-top: 0.2rem; }
+header button {
+  font-family: var(--font);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  color: var(--mid);
+}
+header button:hover { border-color: var(--ink); color: var(--ink); }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.toolbar select, .toolbar input[type="text"] {
+  font-family: var(--font);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+.toolbar label.checkbox {
+  font-size: 0.72rem;
+  color: var(--mid);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.spacer { flex: 1; }
+.btn-primary {
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.btn-primary:hover { opacity: 0.85; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+th {
+  text-align: left;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: var(--mid);
+  text-transform: uppercase;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--ink);
+}
+td { padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tr:hover td { background: var(--navy-lt); }
+
+.pill {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  margin: 0 0.2rem 0.2rem 0;
+  background: var(--navy-lt);
+  color: var(--navy);
+}
+.pill.priority-high { background: #fde8e8; color: #c0392b; }
+.pill.priority-medium { background: #fdf3d8; color: #a87900; }
+.pill.priority-low { background: #e9ecef; color: var(--mid); }
+.pill.inactive { background: #e9ecef; color: var(--mid); }
+
+.toggle-link, .edit-link {
+  font-size: 0.7rem;
+  color: var(--navy-mid);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  padding: 0;
+  margin-right: 0.6rem;
+}
+
+.empty { color: var(--mid); padding: 2rem 0; text-align: center; font-size: 0.8rem; }
+
+/* ── Side panel (add/edit form) ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13,13,13,0.4);
+  z-index: 10;
+}
+.overlay.open { display: block; }
+.panel {
+  position: fixed;
+  top: 0; right: 0;
+  width: 420px;
+  max-width: 92vw;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  padding: 2rem;
+  z-index: 11;
+}
+.panel h2 { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 1.2rem; letter-spacing: 0.02em; }
+.field { margin-bottom: 0.9rem; }
+.field label { display: block; font-size: 0.65rem; letter-spacing: 0.05em; color: var(--mid); text-transform: uppercase; margin-bottom: 0.3rem; }
+.field input, .field select, .field textarea {
+  font-family: var(--font);
+  font-size: 0.78rem;
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--rule);
+}
+.field textarea { resize: vertical; min-height: 50px; }
+.field-row { display: flex; gap: 0.6rem; }
+.field-row .field { flex: 1; }
+.checkbox-row { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; }
+.topics-grid { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.topic-chip { font-size: 0.7rem; }
+.topic-chip label { display: flex; align-items: center; gap: 0.3rem; font-weight: 300; text-transform: none; letter-spacing: 0; color: var(--ink); }
+.panel-actions { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
+.btn-secondary {
+  font-family: var(--font);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  background: none;
+  border: 1px solid var(--rule);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  flex: 1;
+}
+.form-error { font-size: 0.72rem; color: #c0392b; margin-top: 0.6rem; display: none; }
+.form-error.show { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="logo">PACIFIC<span>VECTOR</span></div>
+      <div class="page-label">SOURCE REGISTRY — ADMIN</div>
+    </div>
+    <button onclick="logout()">Log out</button>
+  </header>
+
+  <div class="toolbar">
+    <select id="f-country"><option value="">All countries/regions</option></select>
+    <select id="f-type">
+      <option value="">All types</option>
+      <option value="official_government">Official government</option>
+      <option value="media">Media</option>
+      <option value="think_tank">Think tank</option>
+      <option value="academic">Academic</option>
+      <option value="other">Other</option>
+    </select>
+    <select id="f-priority">
+      <option value="">All priorities</option>
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+    <label class="checkbox"><input type="checkbox" id="f-active-only"> Active only</label>
+    <div class="spacer"></div>
+    <button class="btn-primary" onclick="openForm()">+ Add Source</button>
+  </div>
+
+  <table id="sources-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Region</th>
+        <th>Priority</th>
+        <th>Reliability</th>
+        <th>Topics</th>
+        <th>Last fetch</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="sources-body"></tbody>
+  </table>
+  <div class="empty" id="empty-msg" style="display:none;">No sources match these filters.</div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeForm(event)">
+  <div class="panel" onclick="event.stopPropagation()">
+    <h2 id="panel-title">Add Source</h2>
+    <form id="source-form">
+      <input type="hidden" id="f-id">
+
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="f-name" required>
+      </div>
+      <div class="field">
+        <label>Feed URL</label>
+        <input type="text" id="f-feed-url" required placeholder="https://example.com/feed/">
+      </div>
+      <div class="field">
+        <label>Website URL</label>
+        <input type="text" id="f-website-url" placeholder="https://example.com">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Source type</label>
+          <select id="f-source-type" required>
+            <option value="official_government">Official government</option>
+            <option value="media">Media</option>
+            <option value="think_tank">Think tank</option>
+            <option value="academic">Academic</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Country / region</label>
+          <input type="text" id="f-country-region" required placeholder="Japan">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Language</label>
+          <input type="text" id="f-language" value="en">
+        </div>
+        <div class="field">
+          <label>Institution</label>
+          <input type="text" id="f-institution">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Priority</label>
+          <select id="f-priority-field">
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Reliability tier</label>
+          <select id="f-reliability-tier">
+            <option value="1">1 — highest</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Topics</label>
+        <div class="topics-grid" id="topics-grid"></div>
+      </div>
+
+      <div class="field">
+        <label>Notes</label>
+        <textarea id="f-notes"></textarea>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Inclusion keywords (comma-separated)</label>
+          <input type="text" id="f-inclusion">
+        </div>
+        <div class="field">
+          <label>Exclusion keywords (comma-separated)</label>
+          <input type="text" id="f-exclusion">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Max items per run</label>
+          <input type="number" id="f-max-items" min="0">
+        </div>
+        <div class="field">
+          <label>Default relevance weight</label>
+          <input type="number" id="f-weight" value="1.0" step="0.1" min="0">
+        </div>
+      </div>
+
+      <div class="field checkbox-row">
+        <input type="checkbox" id="f-requires-review" style="width:auto;">
+        <label style="margin:0; text-transform:none; font-size:0.78rem; color:var(--ink);">Requires AI review before inclusion</label>
+      </div>
+
+      <div class="field checkbox-row">
+        <input type="checkbox" id="f-is-active" checked style="width:auto;">
+        <label style="margin:0; text-transform:none; font-size:0.78rem; color:var(--ink);">Active (included in next pipeline run)</label>
+      </div>
+
+      <div class="form-error" id="form-error"></div>
+
+      <div class="panel-actions">
+        <button type="button" class="btn-secondary" onclick="closeForm()">Cancel</button>
+        <button type="submit" class="btn-primary" style="flex:1;">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+let allTopics = [];
+let allSources = [];
+
+async function checkAuthAndLoad() {
+  const res = await fetch('/api/admin-topics');
+  if (res.status === 401) {
+    window.location.href = '/admin/login';
+    return;
+  }
+  const data = await res.json();
+  allTopics = data.topics || [];
+  renderTopicCheckboxes();
+  await loadSources();
+}
+
+function renderTopicCheckboxes(selectedIds = []) {
+  const grid = document.getElementById('topics-grid');
+  grid.innerHTML = allTopics.map(t => `
+    <div class="topic-chip">
+      <label>
+        <input type="checkbox" value="${t.id}" ${selectedIds.includes(t.id) ? 'checked' : ''}>
+        ${t.name}
+      </label>
+    </div>
+  `).join('');
+}
+
+function populateCountryFilter(sources) {
+  const select = document.getElementById('f-country');
+  const current = select.value;
+  const countries = [...new Set(sources.map(s => s.country_or_region))].sort();
+  select.innerHTML = '<option value="">All countries/regions</option>' +
+    countries.map(c => `<option value="${c}">${c}</option>`).join('');
+  select.value = current;
+}
+
+async function loadSources() {
+  const params = new URLSearchParams();
+  const country = document.getElementById('f-country').value;
+  const type = document.getElementById('f-type').value;
+  const priority = document.getElementById('f-priority').value;
+  const activeOnly = document.getElementById('f-active-only').checked;
+  if (country) params.set('country', country);
+  if (type) params.set('source_type', type);
+  if (priority) params.set('priority', priority);
+  if (activeOnly) params.set('active', 'true');
+
+  const res = await fetch('/api/admin-sources?' + params.toString());
+  if (res.status === 401) { window.location.href = '/admin/login'; return; }
+  const data = await res.json();
+  allSources = data.sources || [];
+  if (!country) populateCountryFilter(allSources);
+  renderTable(allSources);
+}
+
+function renderTable(sources) {
+  const tbody = document.getElementById('sources-body');
+  const emptyMsg = document.getElementById('empty-msg');
+  if (!sources.length) {
+    tbody.innerHTML = '';
+    emptyMsg.style.display = 'block';
+    return;
+  }
+  emptyMsg.style.display = 'none';
+
+  tbody.innerHTML = sources.map(s => `
+    <tr>
+      <td><strong>${s.name}</strong><br><span style="color:var(--mid); font-size:0.68rem;">${s.institution || ''}</span></td>
+      <td>${(s.source_type || '').replace('_', ' ')}</td>
+      <td>${s.country_or_region || ''}</td>
+      <td><span class="pill priority-${s.priority}">${s.priority}</span></td>
+      <td>Tier ${s.reliability_tier}</td>
+      <td>${(s.topics || []).map(t => `<span class="pill">${t.name}</span>`).join('')}</td>
+      <td style="font-size:0.68rem; color:var(--mid);">
+        ${s.last_successful_fetch_at ? new Date(s.last_successful_fetch_at).toLocaleString() : 'Never'}
+        ${s.last_error ? `<br><span style="color:#c0392b;">⚠ ${s.last_error.slice(0, 60)}</span>` : ''}
+      </td>
+      <td>${s.is_active ? '<span class="pill" style="background:#e3f5e8; color:#2a8c4a;">Active</span>' : '<span class="pill inactive">Paused</span>'}</td>
+      <td>
+        <button class="edit-link" onclick='openForm(${JSON.stringify(s).replace(/'/g, "&apos;")})'>Edit</button>
+        <button class="toggle-link" onclick="toggleActive('${s.id}', ${s.is_active})">${s.is_active ? 'Pause' : 'Activate'}</button>
+      </td>
+    </tr>
+  `).join('');
+}
+
+async function toggleActive(id, currentState) {
+  await fetch(`/api/admin-sources?id=${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ is_active: !currentState }),
+  });
+  await loadSources();
+}
+
+function openForm(source = null) {
+  document.getElementById('form-error').classList.remove('show');
+  document.getElementById('panel-title').textContent = source ? 'Edit Source' : 'Add Source';
+  document.getElementById('f-id').value = source ? source.id : '';
+  document.getElementById('f-name').value = source ? source.name : '';
+  document.getElementById('f-feed-url').value = source ? source.feed_url : '';
+  document.getElementById('f-website-url').value = source ? (source.website_url || '') : '';
+  document.getElementById('f-source-type').value = source ? source.source_type : 'media';
+  document.getElementById('f-country-region').value = source ? source.country_or_region : '';
+  document.getElementById('f-language').value = source ? (source.language || 'en') : 'en';
+  document.getElementById('f-institution').value = source ? (source.institution || '') : '';
+  document.getElementById('f-priority-field').value = source ? source.priority : 'medium';
+  document.getElementById('f-reliability-tier').value = source ? source.reliability_tier : '2';
+  document.getElementById('f-notes').value = source ? (source.notes || '') : '';
+  document.getElementById('f-inclusion').value = source ? (source.inclusion_keywords || []).join(', ') : '';
+  document.getElementById('f-exclusion').value = source ? (source.exclusion_keywords || []).join(', ') : '';
+  document.getElementById('f-max-items').value = source ? (source.max_items_per_run || '') : '';
+  document.getElementById('f-weight').value = source ? source.default_relevance_weight : '1.0';
+  document.getElementById('f-requires-review').checked = source ? source.requires_ai_review : false;
+  document.getElementById('f-is-active').checked = source ? source.is_active : true;
+
+  renderTopicCheckboxes(source ? (source.topics || []).map(t => t.id) : []);
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeForm(event) {
+  if (event && event.target !== event.currentTarget) return;
+  document.getElementById('overlay').classList.remove('open');
+}
+
+function splitKeywords(value) {
+  return value.split(',').map(s => s.trim()).filter(Boolean);
+}
+
+document.getElementById('source-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const errorEl = document.getElementById('form-error');
+  errorEl.classList.remove('show');
+
+  const id = document.getElementById('f-id').value;
+  const topicIds = Array.from(document.querySelectorAll('#topics-grid input:checked')).map(cb => cb.value);
+
+  const payload = {
+    name: document.getElementById('f-name').value.trim(),
+    feed_url: document.getElementById('f-feed-url').value.trim(),
+    website_url: document.getElementById('f-website-url').value.trim(),
+    source_type: document.getElementById('f-source-type').value,
+    country_or_region: document.getElementById('f-country-region').value.trim(),
+    language: document.getElementById('f-language').value.trim() || 'en',
+    institution: document.getElementById('f-institution').value.trim(),
+    priority: document.getElementById('f-priority-field').value,
+    reliability_tier: parseInt(document.getElementById('f-reliability-tier').value, 10),
+    notes: document.getElementById('f-notes').value.trim(),
+    inclusion_keywords: splitKeywords(document.getElementById('f-inclusion').value),
+    exclusion_keywords: splitKeywords(document.getElementById('f-exclusion').value),
+    max_items_per_run: document.getElementById('f-max-items').value ? parseInt(document.getElementById('f-max-items').value, 10) : null,
+    default_relevance_weight: parseFloat(document.getElementById('f-weight').value) || 1.0,
+    requires_ai_review: document.getElementById('f-requires-review').checked,
+    is_active: document.getElementById('f-is-active').checked,
+    topic_ids: topicIds,
+  };
+
+  try {
+    const res = await fetch(id ? `/api/admin-sources?id=${id}` : '/api/admin-sources', {
+      method: id ? 'PATCH' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const data = await res.json();
+      throw new Error(data.error || 'Save failed');
+    }
+    closeForm();
+    await loadSources();
+  } catch (err) {
+    errorEl.textContent = err.message;
+    errorEl.classList.add('show');
+  }
+});
+
+document.getElementById('f-country').addEventListener('change', loadSources);
+document.getElementById('f-type').addEventListener('change', loadSources);
+document.getElementById('f-priority').addEventListener('change', loadSources);
+document.getElementById('f-active-only').addEventListener('change', loadSources);
+
+async function logout() {
+  await fetch('/api/admin-logout', { method: 'POST' });
+  window.location.href = '/admin/login';
+}
+
+checkAuthAndLoad();
+</script>
+</body>
+</html>

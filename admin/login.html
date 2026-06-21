@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacific Vector — Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a3a5c;
+  --navy-mid: #2a5a8c;
+  --ink: #0d0d0d;
+  --mid: #888888;
+  --rule: #e5e5e5;
+  --bg: #f8f8f6;
+  --font: 'IBM Plex Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 300;
+  font-size: 13px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  width: 320px;
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+.logo {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+.subtitle {
+  font-size: 0.7rem;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+input {
+  font-family: var(--font);
+  font-size: 0.82rem;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--rule);
+  outline: none;
+  margin-bottom: 1rem;
+}
+input:focus { border-color: var(--navy); }
+button {
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+button:hover { opacity: 0.85; }
+.error {
+  font-size: 0.72rem;
+  color: #c0392b;
+  margin-top: 0.8rem;
+  display: none;
+}
+.error.show { display: block; }
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="logo">PACIFIC<span style="color: var(--navy-mid);">VECTOR</span></div>
+  <div class="subtitle">ADMIN — SOURCE REGISTRY</div>
+  <form id="login-form">
+    <input type="password" id="password" placeholder="Password" autocomplete="current-password" autofocus>
+    <button type="submit">Sign in →</button>
+    <div class="error" id="error">Incorrect password.</div>
+  </form>
+</div>
+
+<script>
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const password = document.getElementById('password').value;
+  const errorEl = document.getElementById('error');
+  errorEl.classList.remove('show');
+
+  try {
+    const res = await fetch('/api/admin-login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password }),
+    });
+    if (res.ok) {
+      window.location.href = '/admin/sources';
+    } else {
+      errorEl.classList.add('show');
+    }
+  } catch (err) {
+    errorEl.textContent = 'Something went wrong. Please try again.';
+    errorEl.classList.add('show');
+  }
+});
+</script>
+</body>
+</html>
