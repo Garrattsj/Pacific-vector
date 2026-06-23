@@ -182,6 +182,37 @@ tr:hover td { background: var(--navy-lt); }
 }
 .form-error { font-size: 0.72rem; color: #c0392b; margin-top: 0.6rem; display: none; }
 .form-error.show { display: block; }
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--ink);
+  margin-bottom: 1.5rem;
+}
+.tab {
+  font-family: var(--font);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--mid);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tab.active { color: var(--navy); border-bottom-color: var(--navy); font-weight: 500; }
+.tab:hover:not(.active) { color: var(--ink); }
+
+/* ── Health status pills ── */
+.pill.healthy { background: #e3f5e8; color: #2a8c4a; }
+.pill.error   { background: #fde8e8; color: #c0392b; }
+.pill.stale   { background: #fdf3d8; color: #a87900; }
+.pill.never   { background: #e9ecef; color: var(--mid); }
+
+.error-detail { font-size: 0.68rem; color: #c0392b; margin-top: 0.2rem; max-width: 260px; word-break: break-word; }
 </style>
 </head>
 <body>
@@ -194,6 +225,12 @@ tr:hover td { background: var(--navy-lt); }
     <button onclick="logout()">Log out</button>
   </header>
 
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('sources')">Sources</button>
+    <button class="tab" onclick="switchTab('health')">Health</button>
+  </div>
+
+  <div id="view-sources">
   <div class="toolbar">
     <select id="f-country"><option value="">All countries/regions</option></select>
     <select id="f-type">
@@ -232,6 +269,24 @@ tr:hover td { background: var(--navy-lt); }
     <tbody id="sources-body"></tbody>
   </table>
   <div class="empty" id="empty-msg" style="display:none;">No sources match these filters.</div>
+  </div><!-- /view-sources -->
+
+  <div id="view-health" style="display:none;">
+    <table id="health-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Health</th>
+          <th>Last attempt</th>
+          <th>Last success</th>
+          <th>Error</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="health-body"></tbody>
+    </table>
+    <div class="empty" id="health-empty-msg" style="display:none;">No sources found.</div>
+  </div>
 </div>
 
 <div class="overlay" id="overlay" onclick="closeForm(event)">
@@ -532,6 +587,69 @@ document.getElementById('f-country').addEventListener('change', loadSources);
 document.getElementById('f-type').addEventListener('change', loadSources);
 document.getElementById('f-priority').addEventListener('change', loadSources);
 document.getElementById('f-active-only').addEventListener('change', loadSources);
+
+// ── Tab switching ──
+let currentTab = 'sources';
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el => {
+    if (el.textContent.trim().toLowerCase() === tab) el.classList.add('active');
+  });
+  document.getElementById('view-sources').style.display = tab === 'sources' ? '' : 'none';
+  document.getElementById('view-health').style.display  = tab === 'health'  ? '' : 'none';
+  if (tab === 'health') renderHealthTable(allSources);
+}
+
+// ── Health status logic ──
+function healthStatus(s) {
+  if (!s.last_fetched_at) return 'never';
+  if (s.last_error)       return 'error';
+  if (!s.last_successful_fetch_at) return 'error';
+  const daysSince = (Date.now() - new Date(s.last_successful_fetch_at)) / 86400000;
+  if (daysSince > 3)      return 'stale';
+  return 'healthy';
+}
+
+function healthLabel(status) {
+  return { healthy: 'Healthy', error: 'Error', stale: 'Stale', never: 'Never fetched' }[status] || status;
+}
+
+function fmtTime(ts) {
+  if (!ts) return '<span style="color:var(--mid);">—</span>';
+  const d = new Date(ts);
+  const ago = Math.round((Date.now() - d) / 60000);
+  const label = ago < 60 ? `${ago}m ago` : ago < 1440 ? `${Math.round(ago/60)}h ago` : `${Math.round(ago/1440)}d ago`;
+  return `<span title="${d.toLocaleString()}">${label}</span>`;
+}
+
+function renderHealthTable(sources) {
+  const tbody = document.getElementById('health-body');
+  const emptyMsg = document.getElementById('health-empty-msg');
+  if (!sources.length) {
+    tbody.innerHTML = '';
+    emptyMsg.style.display = 'block';
+    return;
+  }
+  emptyMsg.style.display = 'none';
+
+  // Sort: errors first, then stale, then never, then healthy
+  const order = { error: 0, stale: 1, never: 2, healthy: 3 };
+  const sorted = [...sources].sort((a, b) => order[healthStatus(a)] - order[healthStatus(b)]);
+
+  tbody.innerHTML = sorted.map(s => {
+    const status = healthStatus(s);
+    return `
+      <tr>
+        <td><strong>${s.name}</strong><br><span style="color:var(--mid);font-size:0.68rem;">${s.institution || ''}</span></td>
+        <td><span class="pill ${status}">${healthLabel(status)}</span></td>
+        <td style="font-size:0.72rem;">${fmtTime(s.last_fetched_at)}</td>
+        <td style="font-size:0.72rem;">${fmtTime(s.last_successful_fetch_at)}</td>
+        <td>${s.last_error ? `<div class="error-detail">${s.last_error.slice(0, 120)}</div>` : '<span style="color:var(--mid);">—</span>'}</td>
+        <td>${s.is_active ? '<span class="pill" style="background:#e3f5e8;color:#2a8c4a;">Active</span>' : '<span class="pill inactive">Paused</span>'}</td>
+      </tr>`;
+  }).join('');
+}
 
 async function logout() {
   await fetch('/api/admin-logout', { method: 'POST' });

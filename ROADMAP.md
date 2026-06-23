@@ -59,9 +59,9 @@ Replaces the old hard-coded RSS list with a real database, superseding the "sour
 - [x] Migrate the 7 existing RSS sources into the registry, classified by type/region/priority/reliability/topics
 - [x] Build `/admin/sources` — password-gated UI to add, edit, activate/pause sources and assign topics without touching code
 - [x] End-to-end test: add a new source (BBC News — Asia) through the admin UI and confirm it persists correctly
-- [ ] Integrate the daily pipeline to read active sources from Supabase instead of the hard-coded list (fallback retained during migration)
+- [x] Integrate the daily pipeline to read active sources from Supabase instead of the hard-coded list (fallback retained during migration)
 - [ ] Write each ingested article into `articles` with source metadata snapshotted at ingestion time
-- [ ] Build basic source-health view (last fetch, items in last 7 days, errors, dead/degraded feeds)
+- [x] Build basic source-health view (last fetch, items in last 7 days, errors, dead/degraded feeds)
 - [ ] Remove the hard-coded source list once the registry-driven pipeline is stable
 
 ### Other content quality items
