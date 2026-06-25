@@ -1,0 +1,90 @@
+{
+  "date": "Friday, 26 June 2026",
+  "opening_line": "Tokyo is tightening economic security infrastructure while managing friction with Beijing over maritime surveillance and pushing BOJ independence into political crosshairs.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "TOKYO REJECTS BEIJING CLAIM THAT SDF 'HARASSED' CHINESE CARRIER GROUP",
+          "what_happened": "China accused Japan's Self-Defense Forces of harassing a Chinese aircraft carrier group in waters near Japan. Japan's Defense Ministry flatly rejected the claims as untrue and pledged to continue monitoring regional waters and airspace.",
+          "so_what": "Beijing is testing narrative warfare to constrain SDF operational freedom in the East China Sea. Tokyo's immediate public rebuttal signals it won't cede information space or operational tempo, but expect escalating rhetorical friction as Chinese carrier operations intensify near Japanese waters.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/25/japan/defense-ministry-china-military-claims-reject/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "U.S. DEFENSE STARTUP ANDURIL IN TALKS TO BUILD DRONES AT NISSAN PLANT",
+          "what_happened": "American defense firm Anduril is negotiating to use Nissan's Oppama plant to manufacture drones in Japan. No final decision has been made, but the move could convert one of Japan's historic postwar automotive factories into a weapons production hub.",
+          "so_what": "This reflects Tokyo's push to expand domestic defense industrial capacity through foreign partnerships, addressing supply chain vulnerabilities and deepening U.S.-Japan defense integration. If completed, it marks a symbolic and practical shift: civilian manufacturing pivoting to military production as Japan's security posture hardens.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/25/us-defense-firm-nissan-oppama-plant-drones/"
+        },
+        {
+          "headline": "JAPAN CLEARS FIRST 18 OFFICIALS UNDER NEW ECONOMIC SECURITY CLEARANCE SYSTEM",
+          "what_happened": "Eighteen officials received clearance to handle sensitive economic security information under Japan's security clearance law enacted in May 2024. This marks the initial operational phase of the system.",
+          "so_what": "Japan is building the institutional scaffolding to participate in Five Eyes-style intelligence sharing on technology and supply chains. The small initial cohort suggests cautious rollout, but this is foundational for deeper collaboration with Washington and allies on semiconductor, AI, and defense tech protection.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/25/japan/politics/economic-security-clearance/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "CANADA DISCUSSES JOINING GCAP FIGHTER PROGRAM WITH TOKYO",
+          "what_happened": "Canadian Defense Minister confirmed discussions with Japanese counterpart about potential Canadian participation in the Global Combat Air Programme (GCAP), the UK-Japan-Italy sixth-generation fighter jet project. Interest comes as a rival European fighter program has collapsed.",
+          "so_what": "GCAP is emerging as the only viable Western alternative to U.S. platforms for next-generation air dominance, and Canada's interest validates the program's strategic credibility. Expanding beyond the trilateral core could accelerate development timelines and share costs, but also risks diluting Japanese operational requirements and technology control.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/25/japan/canada-gcap/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "TAKAICHI UNVEILS MULTIYEAR BUDGET FRAMEWORK FOR ECONOMIC SECURITY AND CRISIS PREPAREDNESS",
+          "what_happened": "Japan introduced a multiyear budgeting mechanism set to begin next fiscal year, designed to fund economic security investments and crisis preparedness measures. The framework represents a structural shift in Japan's budgeting process.",
+          "so_what": "This gives Takaichi's administration the fiscal architecture to lock in long-term spending on defense, semiconductors, and resilience without annual political battles. It signals intent to sustain elevated spending regardless of political turbulence, hardwiring strategic priorities into budget structures.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/25/japan/politics/takaichi-multiyear-framework-budget/"
+        },
+        {
+          "headline": "GOVERNMENT BLUEPRINT PRESSURES BOJ TO FUEL DEMAND, CLOUDING RATE PATH",
+          "what_happened": "A draft government economic blueprint urges the Bank of Japan to align monetary policy with Prime Minister Takaichi's reflation and growth agenda. The language suggests political pressure on BOJ decision-making.",
+          "so_what": "Takaichi is publicly eroding BOJ independence to keep monetary policy loose while fiscal spending expands. This creates policy uncertainty for markets and risks yen volatility if investors perceive the central bank as subordinate to political directives, undermining credibility built over decades.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/25/economy/japan-government-economic-blueprint-draft/"
+        },
+        {
+          "headline": "SMEAR VIDEO SCANDAL EXPOSES GAPS IN JAPAN'S DIGITAL CAMPAIGN REGULATIONS",
+          "what_happened": "Reports emerged that one of Prime Minister Takaichi's secretaries met with an individual involved in producing smear videos targeting rival candidates during the campaign. The incident highlights outdated digital campaign rules.",
+          "so_what": "The scandal undercuts Takaichi's early credibility and exposes her campaign's tactics to scrutiny. More broadly, it reveals Japan's regulatory lag on digital political warfare—a vulnerability that foreign actors could exploit in future elections as disinformation becomes a geopolitical tool.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/25/japan/politics/takaichi-campaign-smear-video/"
+        },
+        {
+          "headline": "COOL JAPAN FUND FACES SHUTDOWN AFTER ¥54 BILLION CUMULATIVE LOSS",
+          "what_happened": "Japan's industry ministry is considering scrapping the Cool Japan Fund after cumulative losses reached ¥54 billion in fiscal 2025. The fund was created to promote Japanese cultural exports.",
+          "so_what": "The likely shutdown marks the failure of bureaucrat-led soft power initiatives and validates criticism that Tokyo cannot effectively commercialize cultural assets through state-directed investment. Expect a pivot toward private-sector and digital-first approaches to cultural diplomacy.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/25/japan/cool-japan-fund-future/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Sanae Takaichi",
+    "title": "Prime Minister of Japan",
+    "who_they_are": "Takaichi is Japan's current prime minister, leading an administration focused on economic security, reflation, and defense buildup. She is implementing structural budget reforms while facing early political turbulence from campaign-related scandals.",
+    "background": "A veteran LDP lawmaker and former internal affairs minister, Takaichi represents the party's conservative wing and has long advocated for assertive nationalism and economic intervention. She has close ties to the late Shinzo Abe's political faction.",
+    "known_positions": "Hawkish on China with strong support for enhanced defense capabilities and economic security measures. Committed to the U.S. alliance but willing to pressure the BOJ to subordinate monetary policy to growth objectives, breaking with orthodox central bank independence.",
+    "watch": "Whether the smear video scandal erodes her coalition support early in her tenure, forcing concessions that weaken her ability to push through controversial BOJ pressure and defense spending increases."
+  }
+}
