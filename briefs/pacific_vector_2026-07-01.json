@@ -1,0 +1,83 @@
+{
+  "date": "Wednesday, 01 July 2026",
+  "opening_line": "Japan's economic resilience masks household pain while Tokyo makes strategic bets on satellites and chips amid regional tech competition.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "LIMITED BILATERAL COVERAGE IN TODAY'S FEED",
+          "what_happened": "No direct Japan-China diplomatic or security developments reported in today's articles.",
+          "so_what": "The absence of high-tempo friction suggests either tactical pause or that regional focus has shifted to economic competition and multilateral frameworks. Watch for Beijing's reaction to Japan's satellite and semiconductor investments, which directly challenge Chinese tech ambitions.",
+          "source": "Pacific Vector Analysis",
+          "url": "https://www.japantimes.co.jp"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "US, JAPANESE, AUSTRALIAN TROOPS DRILL IN REMOTE NORTHERN TERRITORY",
+          "what_happened": "American and Japanese soldiers are conducting joint exercises with Australian forces in the Australian bush, thousands of kilometers from active conflict zones. The BBC's Katy Watson reported from the training site.",
+          "so_what": "This trilateral exercise cements operational interoperability far from Japan's home waters—a clear signal that the alliance is building muscle memory for distributed operations across the Indo-Pacific. It's also a message to Beijing: the alliance can project power deep into the southern theater, complicating PLA planning for any Taiwan contingency.",
+          "source": "BBC Asia",
+          "url": "https://www.bbc.co.uk/news/videos/cyv09p2vy87o?at_medium=RSS&at_campaign=rss"
+        },
+        {
+          "headline": "TOKYO BETS ¥150 BILLION ON RAKUTEN SATELLITE TO COUNTER STARLINK DOMINANCE",
+          "what_happened": "Japan will invest ¥150 billion in Rakuten's domestic satellite network project. The move is explicitly aimed at developing homegrown satellite infrastructure and reducing reliance on Starlink.",
+          "so_what": "This is economic security doctrine in action. Tokyo sees Elon Musk's Starlink as both a strategic vulnerability and a commercial competitor. With tensions over Taiwan and potential supply chain disruption, Japan wants sovereign space-based communications. Expect pushback from Washington if this complicates U.S. defense contractors or intelligence sharing architectures.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/30/companies/rakuten-satellite-network-japan-invest/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "SOUTH KOREA UNVEILS $880 BILLION CHIP AND AI INVESTMENT PLAN",
+          "what_happened": "Seoul announced an $880 billion investment in semiconductors and artificial intelligence. The plan comes as Taiwan, China, and Japan are all racing to build chip fabrication capacity and advanced technology infrastructure.",
+          "so_what": "The regional chip war is heating up, and Japan is caught between cooperation and competition with Seoul. Both need to stay ahead of China, but they're also jockeying for market share and subsidy advantage. Tokyo's recent semiconductor subsidies now look modest by comparison—expect pressure on Kishida's successor to scale up or risk falling behind in the one sector Japan still leads.",
+          "source": "BBC Asia",
+          "url": "https://www.bbc.co.uk/news/articles/c9q2pwzngjqo?at_medium=RSS&at_campaign=rss"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "DIET ADOPTS BILL TO REVISE IMPERIAL HOUSE LAW",
+          "what_happened": "The Japanese government adopted a bill to revise the Imperial House Law. The government aims to enact it before the current Diet session ends on July 17.",
+          "so_what": "Succession politics remain a third rail, but this revision—likely focused on reducing the imperial family's size—shows the government is willing to touch it. Any move toward female succession would be explosive, but even technical adjustments signal the LDP is preparing for the next generation. Watch how conservative factions react as the bill moves to final passage.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/06/30/japan/imperial-family-law-bill-revise-adopt/"
+        },
+        {
+          "headline": "JAPAN NEARS LONGEST POSTWAR EXPANSION AS HOUSEHOLDS FEEL THE SQUEEZE",
+          "what_happened": "Japan is approaching its longest postwar economic expansion, with the government maintaining its view that the economy is \"recovering moderately.\" However, the growth is not translating to household relief.",
+          "so_what": "The disconnect between macro growth and micro pain is politically toxic. If wages don't catch up to inflation—and food prices keep rising as reported separately—the LDP will face backlash in upcoming elections. The Bank of Japan's tightening cycle may be premature if consumers buckle under sustained price pressure.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/30/japan-postwar-growth/"
+        },
+        {
+          "headline": "JAPAN TO SEE 2,566 FOOD ITEMS HIKE PRICES IN JULY",
+          "what_happened": "Over 2,500 food items will see price increases in July, driven by higher crude oil and naphtha costs affecting packaging and raw materials. Processed foods like instant noodles are especially affected.",
+          "so_what": "Instant noodles are a political indicator—when they become unaffordable, you have a problem. This wave of inflation hits low- and middle-income households hardest, eroding the LDP's working-class base. It also complicates any hawkish turn on defense spending; voters won't tolerate tax hikes or bond-funded military expansion if they can't afford groceries.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/06/30/economy/food-price-hike-july/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Fumio Kishida",
+    "title": "Prime Minister of Japan (implied from context)",
+    "who_they_are": "Kishida presides over a Japan navigating economic recovery, strategic competition with China, and deepening security ties with the U.S. and regional allies. His government is making multi-billion dollar bets on technology sovereignty while managing domestic inflation that threatens his coalition's electoral standing.",
+    "background": "Longtime LDP member and former foreign minister. Succeeded Yoshihide Suga as prime minister, inheriting the Abe security legacy while attempting to balance dovish instincts with hard geopolitical realities.",
+    "known_positions": "Committed to the U.S. alliance and Quad framework. Supportive of incremental defense buildup but cautious on constitutional revision. Fiscally pragmatic—willing to spend on industrial policy (satellites, chips) but wary of alienating voters with austerity. Rhetorically firm on China but prefers economic statecraft to military posturing.",
+    "watch": "How he manages the price-growth disconnect. If food inflation persists and wages stagnate, his approval will crater—forcing either a leadership challenge within the LDP or a snap election he can't afford to lose. Also watch whether he can sell the Rakuten satellite bet to Washington without triggering alliance friction."
+  }
+}
