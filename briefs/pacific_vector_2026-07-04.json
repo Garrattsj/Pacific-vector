@@ -1,0 +1,83 @@
+{
+  "date": "Saturday, 04 July 2026",
+  "opening_line": "Japan confronts energy vulnerability as Iran war exposes oil dependence, while wage gains continue and the imperial household faces historic change.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "CHINA'S NEW ETHNIC UNITY LAW THREATENS EXTRATERRITORIAL REACH",
+          "what_happened": "China has enacted a new 'ethnic unity' law that rights groups fear gives Beijing legal authority to pursue critics beyond its borders. The law raises concerns about transnational repression of dissidents and minority advocates.",
+          "so_what": "This extends Beijing's coercive toolkit against diaspora communities, including in Japan. Tokyo will face pressure to protect residents from extraterritorial Chinese legal claims while managing bilateral tensions. Expect increased asylum requests from Chinese nationals in Japan.",
+          "source": "BBC Asia",
+          "url": "https://www.bbc.co.uk/news/articles/cx23dwx0232o"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "JAPAN JOINS US-LED TRILATERAL MILITARY DRILLS IN REMOTE AUSTRALIA",
+          "what_happened": "Japanese and US forces are conducting joint training exercises with Australian troops in remote Australian bush, thousands of kilometers from major conflict zones. The BBC reports troops training in the Northern Territory as part of expanded trilateral defense cooperation.",
+          "so_what": "This deepens operational integration between the three alliance partners and signals preparation for distributed operations across the Indo-Pacific. The location choice—far from population centers—suggests rehearsal for contested logistics and long-range coordination scenarios relevant to Taiwan or South China Sea contingencies.",
+          "source": "BBC Asia",
+          "url": "https://www.bbc.co.uk/news/videos/cyv09p2vy87o"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "IRAN WAR EXPOSES JAPAN'S UNRESOLVED OIL IMPORT VULNERABILITY",
+          "what_happened": "Japan received over 93% of its oil imports through the Strait of Hormuz last year before the waterway was effectively closed by the Iran conflict. The crisis has laid bare Tokyo's continued heavy reliance on imported oil despite decades of energy security discussions.",
+          "so_what": "Japan's energy transition remains painfully slow. Without accelerated domestic renewable capacity or diversified supply routes, Tokyo stays hostage to Middle East instability. This vulnerability constrains Japan's strategic autonomy and makes it dependent on US naval power to keep sea lanes open—a bargaining chip Washington won't ignore.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/03/japan/society/solar-wind-iran/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "JAPANESE MAYOR'S MATERNITY LEAVE ANNOUNCEMENT SPARKS NATIONAL DEBATE",
+          "what_happened": "Shoko Kawata, a 35-year-old mayor in Japan, announced she will take maternity leave and received significant criticism. She responded by saying she loves her job and is proud to take time off to have a baby.",
+          "so_what": "The backlash exposes Japan's persistent cultural resistance to women balancing leadership and motherhood—an obstacle to demographic recovery. If mayors face censure for maternity leave, Japan's fertility crisis won't be solved by policy alone. The debate reveals how far workplace norms lag behind stated government goals.",
+          "source": "BBC Asia",
+          "url": "https://www.bbc.co.uk/news/articles/c1mykzj15xno"
+        },
+        {
+          "headline": "IMPERIAL PRINCESSES FACE LEGAL CHANGES AFTER DECADES OF DEBATE",
+          "what_happened": "After decades of discussion, Japanese princesses may soon have the option to either leave or remain in the imperial family under proposed legal revisions. The changes represent a significant shift in imperial household law.",
+          "so_what": "This could stabilize the shrinking imperial family by retaining female members, but it also risks igniting conservative backlash over succession traditions. How this plays politically will test the government's ability to modernize symbolic institutions without alienating its base. The outcome affects both imperial continuity and gender equality discourse.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/03/japan/imperial-family-princess-focus/"
+        },
+        {
+          "headline": "JAPAN SECURES THIRD CONSECUTIVE YEAR OF WAGE GAINS ABOVE 5%",
+          "what_happened": "Workers at 5,368 companies affiliated with Rengo, Japan's largest labor union group, secured an average wage increase of 5.01% in 2026 wage talks. This marks the third straight year of gains exceeding 5%.",
+          "so_what": "Sustained wage growth finally breaks Japan's deflationary psychology and strengthens domestic consumption—critical for economic resilience. This also gives the Bank of Japan cover to continue normalizing monetary policy. If real wages keep rising, Japan's economic model may genuinely be shifting from export dependence to domestic demand.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/07/03/economy/rengo-wage-talks-gains/"
+        },
+        {
+          "headline": "JAPAN TO SHARPLY RAISE RESIDENCE PERMIT FEES FROM OCTOBER",
+          "what_happened": "Japan plans to implement a new fee structure for residence permits starting in October, with fees varying by permit length. Those in the top bracket will be required to pay at least ¥65,000.",
+          "so_what": "Higher fees contradict Japan's stated goal of attracting foreign talent to offset demographic decline. This signals continued ambivalence about immigration—wanting workers without commitment to integration. The policy risks deterring skilled migrants while doing little to address labor shortages in critical sectors.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/03/japan/society/residence-permit-fees/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Shoko Kawata",
+    "title": "Mayor (municipality not specified)",
+    "who_they_are": "Kawata is a 35-year-old Japanese mayor who became the center of national debate after announcing her maternity leave plans. Her public defense of her decision to balance mayoral duties with motherhood has made her a focal point in discussions about work-life balance, gender roles, and Japan's demographic crisis.",
+    "background": "Specific career details not provided in available articles, but she currently serves as mayor and is expecting a child while in office.",
+    "known_positions": "Publicly advocates for women's right to balance career leadership with family life. Defends maternity leave as compatible with public service. Represents generational shift in attitudes toward work-life integration in Japanese politics.",
+    "watch": "Whether she successfully takes maternity leave despite criticism—and whether this sets precedent for other female politicians in Japan facing similar pressures."
+  }
+}
