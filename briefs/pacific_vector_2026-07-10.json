@@ -1,0 +1,97 @@
+{
+  "date": "Friday, 10 July 2026",
+  "opening_line": "China's strategic assertiveness spans from Pacific SLBM tests to Myanmar dam projects, while Japan's regional partners navigate Beijing's expanding influence across multiple theaters.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "CHINA TESTS SUBMARINE-LAUNCHED BALLISTIC MISSILE IN PACIFIC, SIGNALS UNDERSEA NUCLEAR CAPABILITY",
+          "what_happened": "China conducted a submarine-launched ballistic missile test in the Pacific, likely involving the JL-3, timed just after the United States' 250th Independence Day. The test demonstrated China's increasingly credible sea-based nuclear deterrent and marked a new phase in undersea nuclear competition.",
+          "so_what": "This is a direct challenge to U.S. and allied maritime dominance in the Pacific, including Japan's home waters. The timing and advance notification list suggest this was calibrated messaging, not just military testing. Japan faces an adversary with expanding second-strike capability that complicates deterrence calculations.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/chinas-pacific-slbm-test-signals-a-new-phase-in-undersea-nuclear-competition/"
+        },
+        {
+          "headline": "CHINA WEAPONIZES FLUORINE SUPPLY CHAIN DOMINANCE AS NEXT ECONOMIC LEVERAGE TOOL",
+          "what_happened": "Beyond rare earths, China now dominates the entire fluorine value chain, an overlooked source of geopolitical leverage. Fluorine is critical for semiconductors, pharmaceuticals, and advanced manufacturing.",
+          "so_what": "Japan's semiconductor and manufacturing sectors are vulnerable to a new choke point Beijing can exploit. This expands China's economic coercion toolkit beyond rare earths, demanding supply chain diversification that Japan hasn't yet prioritized for fluorine compounds.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/not-just-rare-earths-is-this-chinas-next-economic-weapon/"
+        },
+        {
+          "headline": "XI ASSEMBLES NEW MILITARY LEADERSHIP AMID ONGOING PURGE OF CENTRAL MILITARY COMMISSION",
+          "what_happened": "Chinese leader Xi Jinping is promoting new commanders to the Central Military Commission amid an ongoing purge of senior officers. The leadership reshuffle signals Xi is consolidating control over the military apparatus.",
+          "so_what": "A purged and reshuffled PLA leadership introduces unpredictability into regional security calculations. New commanders may be more loyal but less experienced, or more aggressive to prove themselves—either scenario complicates Japan's threat assessment and crisis management planning.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/promotions-herald-a-new-leadership-for-chinas-military/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "LIMITED COVERAGE OF BILATERAL SECURITY DEVELOPMENTS THIS CYCLE",
+          "what_happened": "No major Japan-US bilateral security announcements or developments appear in today's source material.",
+          "so_what": "The absence of visible activity doesn't mean stasis—it may reflect operational security around sensitive planning following China's Pacific SLBM test. Watch for delayed announcements on enhanced missile defense cooperation or submarine tracking coordination.",
+          "source": "Pacific Vector Analysis",
+          "url": "https://thediplomat.com"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "INDIA PURSUES HEDGING STRATEGY, SEEKING MORE PARTNERS RATHER THAN ALLIANCE SUBSTITUTION",
+          "what_happened": "India's Indo-Pacific strategy focuses on expanding the number of capitals it can engage, not replacing existing partnerships. New Delhi is building a diversified network of strategic options.",
+          "so_what": "India's hedging complicates Japan's Quad calculations—New Delhi won't be the reliable counterweight to China that Tokyo needs. Japan must plan for an India that maintains strategic autonomy and may not align on critical regional crises.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/indias-indo-pacific-strategy-is-a-search-for-options-not-substitutes/"
+        },
+        {
+          "headline": "ITALY PIVOTS INDO-PACIFIC ENGAGEMENT TO DEFENSE CONTRACTS IN SOUTHEAST ASIA",
+          "what_happened": "Italy is making an assertive return to Southeast Asia through defense diplomacy rather than trade or development aid. Rome is pursuing defense contracts as its primary Indo-Pacific engagement tool.",
+          "so_what": "European defense engagement in Southeast Asia creates opportunities for Japan to coordinate on regional security capacity-building. Italy's commercial approach may complement Japan's infrastructure-focused strategy, but competition for contracts could also emerge.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/italys-indo-pacific-strategy-turns-toward-defense-contracts/"
+        },
+        {
+          "headline": "BANGLADESH AWARDS MONGLA PORT PROJECT TO CHINA AFTER INDIA FAILS TO DELIVER ON 2015 COMMITMENT",
+          "what_happened": "Bangladesh allocated land to India in 2015 for a special economic zone at Mongla port, but India never started work. Dhaka has now handed the project to China.",
+          "so_what": "India's failure to deliver infrastructure undermines its competitive position against China's Belt and Road in South Asia. For Japan, this reinforces that matching Chinese infrastructure speed requires not just financing commitments but execution—a lesson for Japan's own regional infrastructure strategy.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/why-india-cannot-escape-blame-for-dhakas-handing-over-of-key-projects-to-china/"
+        }
+      ]
+    },
+    {
+      "title": "REGIONAL DEVELOPMENTS",
+      "stories": [
+        {
+          "headline": "MYANMAR JUNTA TO RESUME CHINESE-BACKED MYITSONE DAM AFTER 15-YEAR SUSPENSION",
+          "what_happened": "Myanmar officials say the junta will push ahead with the $3.6 billion Myitsone Dam project, suspended in 2011 amid public opposition. China's government is pushing hard for resumption.",
+          "so_what": "The junta's capitulation to Beijing on Myitsone demonstrates China's leverage over an isolated Myanmar regime. This sets precedent for other suspended Chinese projects across the region and signals that economic desperation trumps domestic legitimacy concerns for Min Aung Hlaing.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/myanmar-to-push-ahead-with-suspended-myitsone-dam-project-officials-say/"
+        },
+        {
+          "headline": "MYANMAR JUNTA CHIEF VISITS LAOS IN FIRST OFFICIAL ASEAN TRIP, FRACTURING BLOC UNITY",
+          "what_happened": "Myanmar's military leader Min Aung Hlaing is making his first official visit to an ASEAN country since his April appointment as \"president,\" traveling to Laos. This breaks ASEAN's informal isolation of the junta.",
+          "so_what": "ASEAN's fragmentation accelerates as Laos legitimizes Myanmar's junta, undermining any pretense of unified response to the 2021 coup. Japan's ASEAN-centric regional diplomacy faces a bloc increasingly unable to maintain coherent positions on security challenges.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/with-laos-trip-min-aung-hlaing-drives-a-wedge-into-asean/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Min Aung Hlaing",
+    "title": "President of Myanmar (military junta leader)",
+    "who_they_are": "Myanmar's senior general who led the 2021 military coup and appointed himself \"president\" in April 2026. He is making his first official visit to an ASEAN country (Laos), breaking the bloc's informal isolation of his regime. His government is simultaneously capitulating to Chinese demands to resume the controversial Myitsone Dam project.",
+    "background": "Career military officer who rose through Myanmar's Tatmadaw to become Commander-in-Chief before seizing power. His appointment as president represents a shift from military to quasi-civilian rule while maintaining authoritarian control.",
+    "known_positions": "Deeply dependent on Chinese economic and diplomatic support to sustain his isolated regime. Willing to override domestic opposition to deliver on Beijing's infrastructure priorities. Views ASEAN engagement as legitimization tool rather than constraint on internal repression.",
+    "watch": "Whether his Laos visit catalyzes further ASEAN fracturing, with other member states following suit and abandoning consensus on Myanmar isolation—which would fundamentally weaken Japan's regional diplomatic architecture."
+  }
+}
