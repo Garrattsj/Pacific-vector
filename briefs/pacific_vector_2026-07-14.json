@@ -1,0 +1,76 @@
+{
+  "date": "Tuesday, 14 July 2026",
+  "opening_line": "Tokyo is building intelligence capacity with Western help while friction with Beijing escalates over the South China Sea and the government pushes pension funds toward domestic assets.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "BEIJING SINGLES OUT TOKYO OVER SOUTH CHINA SEA STATEMENT",
+          "what_happened": "China targeted Japan specifically after Tokyo joined a 14-nation statement marking the 10th anniversary of the international tribunal ruling that dismissed Beijing's South China Sea claims. The move represents a new irritant in bilateral relations.",
+          "so_what": "Beijing is isolating Japan diplomatically among the statement's signatories, signaling that Tokyo's increasing alignment with Southeast Asian claimants on maritime disputes carries a cost. This complicates Japan's effort to stabilize ties with China while maintaining its principled stance on international law.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/13/japan/politics/japan-china-south-china-sea/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "TOKYO BUILDING NEW INTELLIGENCE AGENCY WITH WESTERN ASSISTANCE",
+          "what_happened": "Japan has privately approached the United States, Australia, and Germany in recent months for advice on technology, staffing, and priorities for a new intelligence agency. The consultations mark a major expansion of Japan's intelligence architecture.",
+          "so_what": "This is Japan's most significant intelligence reform in decades, acknowledging gaps in its ability to operate in an era of strategic competition with China. Western involvement ensures interoperability but also deepens Tokyo's integration into Five Eyes-adjacent frameworks, making intelligence sharing a pillar of alliance management.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/13/japan/politics/japan-intelligence-agency/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "WASHINGTON DOWNGRADING INDIA IN GRAND STRATEGY SHIFT",
+          "what_happened": "India has been demoted in America's strategic calculus in what represents the most significant shift in U.S. policy since Washington embraced New Delhi as a strategic partner at the turn of the century. The commentary describes this as a deliberate effort to avoid repeating the China mistake.",
+          "so_what": "This recalibration weakens the Quad's credibility as a counterweight to China and forces Tokyo to reconsider how much it can rely on Indian alignment in Indo-Pacific contingencies. Japan may need to invest more in direct bilateral ties with Southeast Asian states rather than relying on multilateral frameworks anchored by an unreliable India.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/commentary/2026/07/13/world/americas-new-india-doctrine/"
+        },
+        {
+          "headline": "SOUTH CHINA SEA TRIBUNAL ANNIVERSARY HIGHLIGHTS ENFORCEMENT GAP",
+          "what_happened": "The 10th anniversary of the arbitral tribunal's ruling against China's South China Sea claims prompted reflection on what the award actually achieved. China has ignored the ruling entirely while expanding its presence in disputed waters.",
+          "so_what": "The anniversary underscores the limits of lawfare against a power willing to defy international judgments. For Japan, which cited the ruling in its recent statement, this is a reminder that legal victories without enforcement mechanisms do little to constrain Beijing's behavior.",
+          "source": "The Diplomat",
+          "url": "https://thediplomat.com/2026/07/10-years-ago-the-philippines-won-a-major-victory-in-the-south-china-sea-did-it-matter/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "KATAYAMA ORDERS PENSION FUNDS TO SHIFT TOWARD DOMESTIC ASSETS",
+          "what_happened": "Finance Minister Satsuki Katayama announced the government aims to steer Japan's vast state pension funds to substantially increase domestic asset investments. The policy shift could hurt foreign money managers who currently benefit from pension fund allocations.",
+          "so_what": "This is economic nationalism disguised as portfolio rebalancing. It prioritizes supporting domestic markets and the yen over maximizing returns for pensioners, and signals Tokyo's willingness to sacrifice global diversification for economic security. Foreign asset managers will see Japan as a less reliable client.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/07/13/pension-shift-foreign-money-managers/"
+        },
+        {
+          "headline": "YEN AT 40-YEAR LOW INTENSIFIES BOJ RATE HIKE PRESSURE",
+          "what_happened": "The yen has fallen to a 40-year low against the dollar, changing the calculus for Bank of Japan rate hikes. Raising interest rates would strengthen the yen but risks disrupting the improved business environment that has made MUFG Japan's most valuable firm for the first time.",
+          "so_what": "The BOJ faces an impossible tradeoff between currency stability and financial sector momentum. Any rate hike now would be driven by political pressure over the weak yen rather than economic fundamentals, undermining central bank independence and potentially triggering market volatility.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/commentary/2026/07/13/world/should-boj-raise-rates/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Satsuki Katayama",
+    "title": "Finance Minister of Japan",
+    "who_they_are": "Katayama is directing a major shift in Japan's pension fund investment strategy toward domestic assets, asserting government influence over the country's vast pools of retirement capital. Her announcement to substantially increase domestic holdings represents a break from the globalized investment approach that has prevailed for years. She is a key figure in Japan's economic nationalism turn.",
+    "background": "A former bureaucrat from the Ministry of Finance, Katayama has deep institutional knowledge of Japan's financial architecture and pension system. She has long been associated with conservative economic policies prioritizing domestic stability.",
+    "known_positions": "Economic nationalist favoring domestic asset protection over global diversification. Likely supportive of a stronger defense posture given her alignment with conservative fiscal hawks. Her pension fund directive suggests willingness to use state financial power as a tool of economic security policy.",
+    "watch": "Whether she coordinates with the BOJ on yen stabilization or allows the pension fund shift to proceed independently, potentially creating policy contradictions between currency management and capital allocation."
+  }
+}
