@@ -1,0 +1,76 @@
+{
+  "date": "Wednesday, 15 July 2026",
+  "opening_line": "Tokyo watches Washington target the ICC while Beijing purges another Politburo member—both tests of Japan's diplomatic equilibrium.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "CHINA PURGES THIRD POLITBURO MEMBER IN WIDENING ANTI-CORRUPTION CAMPAIGN",
+          "what_happened": "Xi Jinping's anti-corruption drive has removed a third Politburo member, part of a yearslong purge targeting senior officials across the Communist Party, government, and military. The campaign continues to sweep through China's elite.",
+          "so_what": "Xi's escalating purges signal intensified political consolidation ahead of critical policy decisions. For Japan, this creates both opportunity—a distracted Beijing—and risk, as nationalist diversions become more likely. Tokyo must monitor whether purged officials had roles in Japan policy or regional security portfolios.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/14/asia-pacific/politics/china-purge-politburo-graft/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "TOKYO MONITORING U.S. CAMPAIGN AGAINST INTERNATIONAL CRIMINAL COURT",
+          "what_happened": "Japan's top government spokesperson stated that Japan has \"consistently supported the ICC\" from the standpoint of upholding the rule of law. The comment comes as Japan closely watches the U.S. campaign against the court.",
+          "so_what": "This is a quiet but significant divergence. Washington's ICC offensive forces Tokyo to choose between alliance solidarity and multilateral legal norms Japan champions. Any public split would embolden critics of the alliance within Japan's political establishment and complicate coordination on China policy where legal frameworks matter.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/14/japan/japan-us-icc-move-watch/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "LIMITED COVERAGE OF REGIONAL SECURITY DYNAMICS",
+          "what_happened": "Today's articles provided limited direct coverage of Quad initiatives, AUKUS developments, or broader Indo-Pacific security architecture developments.",
+          "so_what": "The absence of breaking regional security news suggests a quiet period for formal multilateral diplomacy. This creates space for bilateral work and track-two dialogue—often where real progress occurs before public announcements.",
+          "source": "Pacific Vector Analysis",
+          "url": "https://www.japantimes.co.jp"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "FINANCE MINISTER KATAYAMA PUSHES GPIF TOWARD DOMESTIC ASSETS",
+          "what_happened": "Finance Minister Satsuki Katayama called last week for Japan's large pension funds to increase investment in domestic assets. Société Générale estimates this could trigger ¥11.2 trillion ($76 billion) in JGB purchases if GPIF rebalances.",
+          "so_what": "Katayama is leveraging pension funds to support domestic bond markets and potentially cap JGB yields—a de facto monetary policy move through fiscal channels. This signals coordination pressure on the Bank of Japan and reflects anxiety over rising interest rates. Watch for BoJ response and whether this becomes a political flashpoint with pensioners.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/07/14/societe-generale-jgb-gpif/"
+        },
+        {
+          "headline": "RISING INTEREST RATES HIT JAPANESE STUDENT LOAN BORROWERS",
+          "what_happened": "Higher interest rates on loan-type scholarships may increase some borrowers' repayment balances by over ¥1 million. The burden falls on students as Japan's rate environment shifts.",
+          "so_what": "Student debt anxiety could fuel political pressure on the government as younger voters face deteriorating economic prospects. This demographic already shows lower LDP support—adding financial stress risks accelerating generational political realignment and opposition mobilization ahead of the next election.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/14/japan/japan-student-loans/"
+        },
+        {
+          "headline": "FOREIGN WORKER REMITTANCES FROM JAPAN SURPASS ¥1 TRILLION",
+          "what_happened": "Overseas remittances from Japan topped ¥1 trillion for the first time, up 11.5% year-on-year to ¥1.004 trillion—double the 2015 figure. The surge reflects Japan's growing foreign worker population.",
+          "so_what": "This milestone quantifies Japan's demographic dependence on foreign labor. The政治的 challenge: reconciling nationalist immigration skepticism with economic necessity. Expect this data to fuel debate over permanent residency pathways and integration policy—issues the ruling coalition has long avoided.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/14/japan/japan-foreign-worker-remittances/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Satsuki Katayama",
+    "title": "Minister of Finance",
+    "who_they_are": "Katayama is steering Japan's fiscal policy at a critical juncture, as rising interest rates threaten debt sustainability and pension fund stability. Her call for GPIF to shift toward domestic assets signals active intervention in capital allocation to manage macroeconomic risk. She operates at the intersection of fiscal discipline, monetary coordination, and political pressure to maintain social stability.",
+    "background": "A former Ministry of Internal Affairs and Communications bureaucrat turned politician, Katayama has held multiple cabinet positions and is known for technocratic competence. She represents the administrative wing of the LDP, with deep ties to fiscal policy networks.",
+    "known_positions": "Fiscal hawk with pragmatic instincts. Supports U.S. alliance as economic stability anchor. Cautious on China economic engagement but recognizes trade necessity. Prioritizes domestic financial system stability over ideological purity on market intervention.",
+    "watch": "Whether her GPIF pressure triggers pushback from the Bank of Japan or pension fund managers—and whether she can maintain this intervention without spooking markets that still remember past government bond market manipulation."
+  }
+}
