@@ -1,0 +1,83 @@
+{
+  "date": "Wednesday, 22 July 2026",
+  "opening_line": "Tokyo publicly disclosed Chinese live-fire drills inside its EEZ for the first time, signaling a shift from quiet protest to strategic transparency.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "CHINA CONDUCTS LIVE-FIRE EXERCISE INSIDE JAPAN'S EEZ—TOKYO GOES PUBLIC",
+          "what_happened": "A Chinese warship fired machine guns near Okinotorishima island over the weekend inside Japan's exclusive economic zone. Tokyo publicized the drill for the first time, releasing images of the destroyer in action.",
+          "so_what": "Japan's decision to make this public marks a departure from decades of diplomatic restraint. By exposing Chinese military activity in its waters, Tokyo is building a narrative for domestic and international audiences that could justify accelerated defense buildups or invite deeper U.S. involvement. Beijing now knows quiet incursions will be spotlighted.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/21/japan/china-live-fire-exercise-japan-eez/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "CANADA JOINS GCAP FIGHTER JET PROJECT AS OBSERVER—NO CASH, BUT A FOOT IN THE DOOR",
+          "what_happened": "Canada will become the first observer nation in the Japan-Italy-U.K. Global Combat Air Programme. The role carries no financial commitment or contractual obligations but opens a pathway to future cooperation.",
+          "so_what": "This expands the GCAP framework beyond its original trilateral structure and signals growing Western alignment on Indo-Pacific defense technology. Canada's involvement, even as observer, strengthens the program's legitimacy and could attract other U.S. allies wary of committing funds upfront. Watch for Australia next.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/21/japan/canada-observer-gcap-fighter-jet/"
+        },
+        {
+          "headline": "U.S. BANKS TO FINANCE JAPAN'S $550 BILLION INVESTMENT PLEDGE IN AMERICA",
+          "what_happened": "JPMorgan and other U.S. banks will help finance Japan's massive infrastructure investment plan in the United States. Japanese banks have been reluctant to participate due to costly dollar funding for long-term projects.",
+          "so_what": "This arrangement keeps Tokyo's commitment to Washington on track while exposing Japanese financial institutions' structural limits in dollar markets. The reliance on U.S. banks for a geopolitically motivated investment package creates dependency and potential vulnerability if U.S.-Japan relations sour or if future administrations impose conditions.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/07/21/companies/us-banks-help-japan-investment-pledge-in-us/"
+        },
+        {
+          "headline": "DEFENSE SPENDING SIGNAL: JAPAN EYES NATO-STYLE TARGETS IN FISCAL BLUEPRINT",
+          "what_happened": "Japan's annual economic policy guidelines referenced NATO spending goals and pledged to \"transform the country's defense capabilities within five years.\" The language hints at a new defense spending target without naming a specific figure.",
+          "so_what": "Tokyo is inching toward explicit adoption of NATO's 2% GDP defense spending threshold without triggering immediate domestic backlash. The five-year transformation timeline aligns with anticipated threats from China and pressure from Washington. Expect budget battles as this moves from aspiration to appropriation.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/21/japan/politics/japan-defense-spending-target-fiscal-blueprint/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "MANILA AND BEIJING SUMMON ENVOYS AFTER VIOLENT SOUTH CHINA SEA CLASH",
+          "what_happened": "The Philippines and China exchanged diplomatic protests following a violent encounter at sea that left a Philippine serviceman injured. China blamed Manila for triggering the skirmish while claiming it \"allowed\" evacuation of the wounded sailor.",
+          "so_what": "Tensions in the South China Sea remain at flashpoint levels with kinetic confrontations now routine. Japan watches these incidents closely as a preview of potential gray-zone operations around the Senkakus. Any Philippine request for U.S. treaty support could force Tokyo to clarify its own security posture in contested waters.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/21/asia-pacific/philippines-sailor-china-coast-guard/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "CABINET PROTECTS BOJ INDEPENDENCE IN FINAL ECONOMIC BLUEPRINT",
+          "what_happened": "Japan's Cabinet approved the annual economic policy guidelines after rewriting a draft line that suggested weakening central bank autonomy. The final version stresses BOJ independence.",
+          "so_what": "Someone in the Prime Minister's office or ruling coalition wanted to subordinate monetary policy to political goals and was overruled. The reversal signals either internal factional resistance or external pressure—likely from markets or the BOJ itself. Independence remains contested terrain as inflation and debt dynamics worsen.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/business/2026/07/21/economy/honebuto-cabinet-approval/"
+        },
+        {
+          "headline": "SUCCESSION RULES RELAXED, BUT FEMALE EMPERORS STILL BANNED",
+          "what_happened": "Japan passed a law allowing adoption of male distant relatives aged over 15 back into the imperial family. The ban on female emperors remains in place.",
+          "so_what": "This is a conservative patch on a structural crisis, not a solution. The imperial family faces potential extinction within two generations unless female succession is allowed. The compromise satisfies traditionalists but defers the inevitable reckoning, ensuring this fight will resurface as public opinion continues shifting toward gender equality.",
+          "source": "BBC Asia",
+          "url": "https://www.bbc.co.uk/news/articles/cy07rz79zg9o?at_medium=RSS&at_campaign=rss"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "Fumio Kishida",
+    "title": "Prime Minister of Japan",
+    "who_they_are": "Kishida leads Japan at a moment when defense spending, monetary policy independence, and China strategy are colliding. His cabinet's approval of the economic blueprint—with BOJ independence stressed and defense transformation signaled—reflects his balancing act between fiscal hawks, security hard-liners, and dovish coalition partners. The decision to publicize Chinese military activity in Japan's EEZ also suggests his government is shifting toward transparency and confrontation.",
+    "background": "Career diplomat turned politician from Hiroshima. Represents the moderate Kōchikai faction, traditionally cautious on defense and close to business interests.",
+    "known_positions": "Supports strengthening the U.S. alliance and has backed increased defense spending under Washington pressure. On China, adopts a dual approach: tactical firmness on territorial and security issues while seeking economic engagement where possible. Defends BOJ independence but faces pressure from growth-oriented factions.",
+    "watch": "Whether he can deliver NATO-level defense spending within five years without fracturing his coalition or triggering public backlash. The rewritten BOJ language shows he's vulnerable to internal challenges on economic policy."
+  }
+}
