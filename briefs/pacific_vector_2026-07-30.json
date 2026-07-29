@@ -1,0 +1,69 @@
+{
+  "date": "Thursday, 30 July 2026",
+  "opening_line": "Japan confronts a deadly earthquake in Kumamoto while Tokyo watches China's submarine buildup and deepens quantum technology cooperation with Australia.",
+  "sections": [
+    {
+      "title": "JAPAN–CHINA",
+      "stories": [
+        {
+          "headline": "CHINA DEPLOYS MYSTERY NUCLEAR SUBMARINE AS FORCE EXPANSION ACCELERATES",
+          "what_happened": "A new stealthy, likely nuclear-powered Chinese submarine has been identified, offering fresh insight into Beijing's naval modernization push. The vessel represents China's continued effort to build up its submarine force.",
+          "so_what": "This complicates Japan's security calculus in the East China Sea and western Pacific. Tokyo will need to recalibrate its anti-submarine warfare posture and deepen intelligence-sharing with Washington and Canberra as China's underwater capabilities mature faster than expected.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/29/asia-pacific/china-mystery-nuclear-submarine-analysis/"
+        }
+      ]
+    },
+    {
+      "title": "JAPAN–US & SECURITY",
+      "stories": [
+        {
+          "headline": "JAPAN, AUSTRALIA SIGN QUANTUM TECHNOLOGY COOPERATION MOU",
+          "what_happened": "Japan and Australia have agreed to boost cooperation on quantum technology through a new memorandum. Japan has now signed similar agreements with the United States and India.",
+          "so_what": "This completes quantum cooperation architecture within the Quad framework, creating a technology alliance to counter China's advances in critical dual-use capabilities. Expect acceleration in joint research, export controls coordination, and supply chain integration for quantum computing and communications.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/29/japan/japan-australia-quantum-tech/"
+        }
+      ]
+    },
+    {
+      "title": "INDO-PACIFIC / QUAD",
+      "stories": [
+        {
+          "headline": "CHINA DEEPENS INFLUENCE OVER AFRICAN YOUTH AS SUPPLY CHAINS RECONFIGURE",
+          "what_happened": "A new survey reveals China is strengthening its influence over Africa's younger generation. The findings come as Trump-era tariffs and conflicts in Europe and the Middle East force global supply chain reconfiguration.",
+          "so_what": "Beijing is positioning itself as the partner of choice for the next generation of African leaders while the West is distracted. For Japan, this means intensifying its own Africa engagement—through TICAD and infrastructure investment—or risk losing ground in a continent increasingly central to Indo-Pacific strategy and rare earth supply chains.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/29/world/politics/china-influence-africa-youth-survey/"
+        }
+      ]
+    },
+    {
+      "title": "DOMESTIC POLITICS",
+      "stories": [
+        {
+          "headline": "KUMAMOTO EARTHQUAKE KILLS 13, OVER 100 AFTERSHOCKS STRIKE",
+          "what_happened": "A 6.8-magnitude earthquake hit Kumamoto, killing at least 13 people and triggering over 100 aftershocks. Officials warn of potential magnitude 7 aftershocks. The quake destroyed a newly reopened Aeon mall that had just recovered from the 2016 disaster.",
+          "so_what": "This tests disaster response infrastructure a decade after the 2016 Kumamoto quakes and exposes ongoing vulnerability in seismically active Kyushu. The government's handling will be scrutinized ahead of the next general election. Taiwan's immediate offer of support underscores the Tokyo-Taipei disaster diplomacy channel.",
+          "source": "BBC Asia",
+          "url": "https://www.bbc.co.uk/news/articles/cgk43y21j0do?at_medium=RSS&at_campaign=rss"
+        },
+        {
+          "headline": "JAPANESE POPULATION FALLS BELOW 120 MILLION AS FOREIGN RESIDENTS SURGE",
+          "what_happened": "Japan's population dropped below 120 million, with Japanese residents declining 0.76%. Foreign residents increased 9.62%.",
+          "so_what": "The demographic tipping point is here. Foreign workers are now structurally essential to Japan's economy, forcing a reckoning with integration policy. Expect intensified debate over immigration reform, labor rights, and social cohesion—as seen in the mosque controversy in a Japanese town grappling with how to integrate new cultures.",
+          "source": "Japan Times",
+          "url": "https://www.japantimes.co.jp/news/2026/07/29/japan/japan-population-fall/"
+        }
+      ]
+    }
+  ],
+  "profile": {
+    "name": "No single Japanese political figure dominates today's coverage",
+    "title": "N/A",
+    "who_they_are": "Today's news is dominated by the Kumamoto earthquake response, structural demographic shifts, and defense technology cooperation. No individual political leader features prominently, though the government's disaster response will be closely watched.",
+    "background": "N/A",
+    "known_positions": "N/A",
+    "watch": "Monitor whether Prime Minister's office coordinates effective earthquake relief while managing the optics of Japan's demographic decline and foreign worker dependency ahead of the next electoral cycle."
+  }
+}
